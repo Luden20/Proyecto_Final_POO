@@ -19,8 +19,10 @@ public class DB extends SQLiteOpenHelper {
     public DB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         db = getWritableDatabase();
-        db.execSQL(TABLE_CREATE);
-        db.execSQL("DELETE FROM mytable");
+
+        //alf
+        // db.execSQL(TABLE_CREATE);
+
 
         db.execSQL("INSERT INTO mytable (name, age) VALUES ('John', 30);");
         db.execSQL("INSERT INTO mytable (name, age) VALUES ('Alice', 25);");

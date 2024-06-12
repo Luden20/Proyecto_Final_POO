@@ -37,10 +37,5 @@ public class VerCarnet extends AppCompatActivity {
     {
         Spinner sp=findViewById(R.id.spinner);
         String SelectedItem=sp.getSelectedItem().toString();
-        TextView d1=findViewById(R.id.D1);
-        d1.setText(db.get("SELECT id FROM mytable WHERE name='"+SelectedItem+"';"));
-        Toast.makeText(this, SelectedItem, Toast.LENGTH_SHORT).show();
-        TextView d2=findViewById(R.id.D2);
-        d1.setText(db.get("SELECT age FROM mytable WHERE name='"+SelectedItem+"';"));
     }
 }
