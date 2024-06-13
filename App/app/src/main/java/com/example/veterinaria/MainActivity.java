@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    private DB db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        db = new DB(this);
     }
     public void Pasar(View v)
     {
@@ -33,14 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         EditText ETUser= findViewById(R.id.User);
         String user = ETUser.getText().toString();
-        if(pass.equals("alf")&user.equals("alf"))
+        String Existe=db.get("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE CLI_CEDULA_RUC='"+user+"' AND CLI__CONTRASENA='"+pass+"';");
+        if(db.UsuarioExiste(user, pass))
         {
             Intent intent =new Intent(this, VerCarnet.class);
-            startActivity(intent);
-        }
-        else if(pass.equals("admin")&&user.equals("admin"))
-        {
-            Intent intent =new Intent(this, MenuAdmin.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         }
         else

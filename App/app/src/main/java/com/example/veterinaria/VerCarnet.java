@@ -1,9 +1,12 @@
 package com.example.veterinaria;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,12 +16,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.os.Bundle;
 
-import com.example.veterinaria.DB;
-import com.example.veterinaria.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class VerCarnet extends AppCompatActivity {
     private DB db;
+    private String Cedula;
+    private String IDMascota;
+    private String IDCarnet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +43,57 @@ public class VerCarnet extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        db = new DB(this);
+        Intent intent=getIntent();
+        Cedula=(String)intent.getStringExtra("user");
+        db=new DB(this);
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
-        spinner.setAdapter(db.getArrayAdapter("SELECT name FROM mytable;",this));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerActionListener(view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Método opcional, se llama cuando no se selecciona ningún elemento
+            }
+        });
+        TextView TVNombre=findViewById(R.id.TVNombre);
+        TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+        TextView TVApellido=findViewById(R.id.TVApellido);
+        TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+        TextView TVTelefono=findViewById(R.id.TVTelefono);
+        TVTelefono.setText("Telefono:"+db.get("SELECT CLI__TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+        TextView TVCorreo=findViewById(R.id.TVCorreo);
+        TVCorreo.setText("Correo:"+db.get("SELECT CLI__CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+        TextView TVDireccion=findViewById(R.id.TVDireccion);
+        TVDireccion.setText("Direcion:"+db.get("SELECT CLI__DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+        spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC="+Cedula+";",this));
     }
-    public void Ver(View v)
+    public void spinnerActionListener(View v)
     {
         Spinner sp=findViewById(R.id.spinner);
-        String SelectedItem=sp.getSelectedItem().toString();
+        String NombreMascota=sp.getSelectedItem().toString();
+        IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+Cedula+"' AND MSC_NOMBRE='"+NombreMascota+"';");
+        IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
+        TextView TVNombreMascota=findViewById(R.id.TVNombreMascota);
+        TVNombreMascota.setText("Nombre Mascota:"+NombreMascota);
+        TextView TVSexoMascota=findViewById(R.id.TVSexoMascota);
+        TVSexoMascota.setText("Sexo:"+db.get("SELECT MSC_SEXO FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';"));
+        TextView TVColorMascota=findViewById(R.id.TVColorMascota);
+        TVColorMascota.setText("Color:"+db.get("SELECT MSC_COLOR FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';"));
+        TextView TVFNMascota=findViewById(R.id.TVFNMascota);
+        TVFNMascota.setText("Fecha de Nacimiento:"+db.get("SELECT MSC_FECHA FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';"));
+        TextView TVEstadoMascota=findViewById(R.id.TVEstadoMascota);
+        TVEstadoMascota.setText("Estado: "+db.get("SELECT MSC_ESTADO FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';"));
+        TextView TVDPMascota=findViewById(R.id.TVDPMascota);
+        TVDPMascota.setText("Detalles : "+db.get("SELECT MSC_DATOS FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';"));
+        TextView TVERMascota=findViewById(R.id.TVERMascota);
+        String IDRaza=db.get("SELECT RZ_CODIGO FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';");
+        TVERMascota.setText("Raza:"+db.get("SELECT R.RZ_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';")+" Especie:"+db.get("SELECT E.SP_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';"));
+
+        ListView Vacunas = findViewById(R.id.Vacunas);
+        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VNCT_DESCRIPCION,V.VNCT_LOTE,V.VNCT_FABRICANTE,DV.DCC_FECHA_VAC,DV.DCC_REFECHA_VAC,DV.DCC_ESTADO FROM VACUNA_CONTROL V INNER JOIN DETALLE_VAC_CONTROL DV ON V.VNCT_CODIGO=DV.VNCT_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
     }
+
 }
