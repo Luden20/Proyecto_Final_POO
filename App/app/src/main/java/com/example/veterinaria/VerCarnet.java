@@ -1,6 +1,7 @@
 package com.example.veterinaria;
 
 import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -58,17 +59,26 @@ public class VerCarnet extends AppCompatActivity {
                 // Método opcional, se llama cuando no se selecciona ningún elemento
             }
         });
-        TextView TVNombre=findViewById(R.id.TVNombre);
-        TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-        TextView TVApellido=findViewById(R.id.TVApellido);
-        TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-        TextView TVTelefono=findViewById(R.id.TVTelefono);
-        TVTelefono.setText("Telefono:"+db.get("SELECT CLI__TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-        TextView TVCorreo=findViewById(R.id.TVCorreo);
-        TVCorreo.setText("Correo:"+db.get("SELECT CLI__CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-        TextView TVDireccion=findViewById(R.id.TVDireccion);
-        TVDireccion.setText("Direcion:"+db.get("SELECT CLI__DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-        spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC="+Cedula+";",this));
+        try {
+            TextView TVNombre=findViewById(R.id.TVNombre);
+            TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TextView TVApellido=findViewById(R.id.TVApellido);
+            TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TextView TVTelefono=findViewById(R.id.TVTelefono);
+            TVTelefono.setText("Telefono:"+db.get("SELECT CLI_TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TextView TVCorreo=findViewById(R.id.TVCorreo);
+            TVCorreo.setText("Correo:"+db.get("SELECT CLI_CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TextView TVDireccion=findViewById(R.id.TVDireccion);
+            TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC="+Cedula+";",this));
+        }
+        catch(SQLException e)
+        {
+            TextView TVNombre=findViewById(R.id.TVNombre);
+            TVNombre.setText(e.getMessage());
+        }
+
+
     }
     public void spinnerActionListener(View v)
     {
@@ -91,9 +101,8 @@ public class VerCarnet extends AppCompatActivity {
         TextView TVERMascota=findViewById(R.id.TVERMascota);
         String IDRaza=db.get("SELECT RZ_CODIGO FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';");
         TVERMascota.setText("Raza:"+db.get("SELECT R.RZ_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';")+" Especie:"+db.get("SELECT E.SP_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';"));
-
         ListView Vacunas = findViewById(R.id.Vacunas);
-        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VNCT_DESCRIPCION,V.VNCT_LOTE,V.VNCT_FABRICANTE,DV.DCC_FECHA_VAC,DV.DCC_REFECHA_VAC,DV.DCC_ESTADO FROM VACUNA_CONTROL V INNER JOIN DETALLE_VAC_CONTROL DV ON V.VNCT_CODIGO=DV.VNCT_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
+        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,V.VAC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
     }
 
 }

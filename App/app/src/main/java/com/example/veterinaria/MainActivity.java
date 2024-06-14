@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText ETUser= findViewById(R.id.User);
         String user = ETUser.getText().toString();
-        String Existe=db.get("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE CLI_CEDULA_RUC='"+user+"' AND CLI__CONTRASENA='"+pass+"';");
+        String Existe=db.get("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE CLI_CEDULA_RUC='"+user+"' AND CLI_CONTRASENA='"+pass+"';");
         if(db.UsuarioExiste(user, pass))
         {
             Intent intent =new Intent(this, VerCarnet.class);
