@@ -125,6 +125,7 @@ public class Vacunacion extends AppCompatActivity {
 
             }
         });
+        SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA;",this));
         SPMascota.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"';",this));
         SPFiltro.setAdapter(db.getAtributeArrayAdapter("SELECT * FROM CLIENTE;",this));
         SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE;",this));
@@ -162,5 +163,11 @@ public class Vacunacion extends AppCompatActivity {
     {
         EDVacunaBuscada=findViewById(R.id.EDVacunaBuscada);
         IngresoVac=EDVacunaBuscada.getText().toString();
+        SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA WHERE VAC_CODIGO LIKE '"+IngresoVac+"';",this));
+
+    }
+    public void SPVacunaActionListener(View v)
+    {
+
     }
 }
