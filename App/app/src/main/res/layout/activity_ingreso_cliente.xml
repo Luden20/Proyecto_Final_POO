@@ -7,11 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".ingresoCliente">
 
+    <Button
+        android:id="@+id/Ingreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:onClick="Ingresar"
+        android:text="Ingreso"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TableLayout
-        android:layout_width="275dp"
-        android:layout_height="376dp"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="99dp">
+        android:layout_width="318dp"
+        android:layout_height="357dp"
+        app:layout_constraintBottom_toTopOf="@+id/Ingreso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -22,6 +35,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cedula" />
+
+            <EditText
+                android:id="@+id/EDCedula"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
 
         </TableRow>
 
@@ -35,6 +55,13 @@
                 android:layout_height="wrap_content"
                 android:text="Nombre" />
 
+            <EditText
+                android:id="@+id/EDNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
         </TableRow>
 
         <TableRow
@@ -46,6 +73,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Apellido" />
+
+            <EditText
+                android:id="@+id/EDApellido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
 
         </TableRow>
 
@@ -59,6 +93,13 @@
                 android:layout_height="wrap_content"
                 android:text="Telefono" />
 
+            <EditText
+                android:id="@+id/EDTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
         </TableRow>
 
         <TableRow
@@ -70,6 +111,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Direccion" />
+
+            <EditText
+                android:id="@+id/EDDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
 
         </TableRow>
 
@@ -83,6 +131,13 @@
                 android:layout_height="wrap_content"
                 android:text="Correo" />
 
+            <EditText
+                android:id="@+id/EDCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
         </TableRow>
 
         <TableRow
@@ -94,6 +149,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password" />
+
+            <EditText
+                android:id="@+id/EDPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
 
         </TableRow>
 

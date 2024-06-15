@@ -61,16 +61,16 @@ public class VerCarnet extends AppCompatActivity {
         });
         try {
             TextView TVNombre=findViewById(R.id.TVNombre);
-            TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
             TextView TVApellido=findViewById(R.id.TVApellido);
-            TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
             TextView TVTelefono=findViewById(R.id.TVTelefono);
-            TVTelefono.setText("Telefono:"+db.get("SELECT CLI_TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TVTelefono.setText("Telefono:"+db.get("SELECT CLI_TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
             TextView TVCorreo=findViewById(R.id.TVCorreo);
-            TVCorreo.setText("Correo:"+db.get("SELECT CLI_CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
+            TVCorreo.setText("Correo:"+db.get("SELECT CLI_CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
             TextView TVDireccion=findViewById(R.id.TVDireccion);
-            TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC="+Cedula+";"));
-            spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC="+Cedula+";",this));
+            TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
+            spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+Cedula+"';",this));
         }
         catch(SQLException e)
         {
@@ -104,5 +104,4 @@ public class VerCarnet extends AppCompatActivity {
         ListView Vacunas = findViewById(R.id.Vacunas);
         Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,V.VAC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
     }
-
 }

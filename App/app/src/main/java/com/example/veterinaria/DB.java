@@ -31,8 +31,8 @@ public class DB extends SQLiteOpenHelper {
         {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             Log.e("Error", e.getMessage());
-            Toast.makeText(context, get("SELECT COUNT(*)  FROM sqlite_master  WHERE type = 'table' AND name NOT LIKE 'sqlite_%';\n"), Toast.LENGTH_SHORT).show();
-            Toast.makeText(context,e.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, get("SELECT COUNT(*)  FROM sqlite_master  WHERE type = 'table' AND name NOT LIKE 'sqlite_%';\n"), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -77,6 +77,16 @@ public class DB extends SQLiteOpenHelper {
         cursor.close();
         return aux;
     }
+    public String[] getAtributeArray(String query) {
+        Cursor cursor = generarCursor(query);
+        String[] aux = new String[ cursor.getColumnCount()];
+
+        for (int i = 0; i < cursor.getColumnCount(); i++) {
+            aux[i]=cursor.getColumnName(i);
+        }
+        cursor.close();
+        return aux;
+    }
     public ArrayAdapter<String> getAllArrayAdapter(String sql, Context context) {
         String[] opciones = getAllArray(sql);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, opciones);
@@ -85,6 +95,13 @@ public class DB extends SQLiteOpenHelper {
     }
     public ArrayAdapter<String> getArrayAdapter(String sql, Context context) {
         String[] opciones = getArray(sql);
+        Log.d("SQL Result",opciones.toString());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, opciones);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
+    }
+    public ArrayAdapter<String> getAtributeArrayAdapter(String sql, Context context) {
+        String[] opciones = getAtributeArray(sql);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, opciones);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
@@ -168,5 +185,19 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO DETALLE_VAC_RABIA (CNT_CODIGO, VCRB_CODIGO, DCR_FECHA_VAC, DCR_REFECHA_VAC, DCC_ESTADO) VALUES ('CNT002', 'VCRB002', '2023-04-01', '2024-04-01', 'Administrada');");
         db.execSQL("INSERT INTO VETERINARIO (VET_CEDULA_RUC, VET_NOMBRE, VET_APELLIDO, VET_TELEFONO, VET_CORREO, VET_DIRECCION, VET_CONTRASENA) VALUES ('1234567890124', 'Pedro', 'López', '0997777777', 'pedro.lopez@example.com', 'Calle Luna 789', 'vet12345');");
         db.execSQL("INSERT INTO VETERINARIO (VET_CEDULA_RUC, VET_NOMBRE, VET_APELLIDO, VET_TELEFONO, VET_CORREO, VET_DIRECCION, VET_CONTRASENA) VALUES ('9876543210988', 'Ana', 'Martínez', '0986666666', 'ana.martinez@example.com', 'Avenida Sol 321', 'vet67890');");
+    }
+    public boolean Instruccion(String SQL)
+    {
+        try
+        {
+            db.execSQL(SQL);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            Toast.makeText(c,e.getMessage(),Toast.LENGTH_SHORT).show();
+            Log.e("SQLERROR",e.getMessage());
+            return false;
+        }
     }
 }
