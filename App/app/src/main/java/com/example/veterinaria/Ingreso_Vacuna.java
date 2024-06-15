@@ -1,9 +1,6 @@
 package com.example.veterinaria;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
@@ -13,34 +10,28 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MenuAdmin extends AppCompatActivity {
+public class Ingreso_Vacuna extends AppCompatActivity {
+    private DB db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_menu_admin);
+        setContentView(R.layout.activity_ingreso_vacuna);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        db=new DB(this);
     }
-    public void EntrarIngresoCliente(View v)
+    public void IngresarVacuna(View v)
     {
-        Intent i=new Intent(this, ingresoCliente.class);
-        startActivity(i);
-    }
-    public void EntrarInresoMascota(View v)
-    {
-        startActivity(new Intent(this, Ingreso_Mascota.class));
-    }
-    public void EntrarIngresoVacuna(View v)
-    {
-        startActivity(new Intent(this,Ingreso_Vacuna.class));
-    }
-    public void EntrarVacunacion(View v)
-    {
-        startActivity(new Intent(this, Vacunacion.class));
+        EditText ETCodigo=findViewById(R.id.ETCodigo);
+        String Codigo=ETCodigo.getText().toString();
+        EditText ETDescripcion=findViewById(R.id.ETDescripcion);
+        String Descripcion=ETDescripcion.getText().toString();
+        EditText ETFabricante=findViewById(R.id.ETFabricante);
+        String Fabricante=ETFabricante.getText().toString();
+        db.Instruccion("INSERT INTO VACUNA VALUES('"+Codigo+"','"+Descripcion+"','"+Fabricante+"')");
     }
 }

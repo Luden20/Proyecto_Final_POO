@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class DB extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "vet.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private SQLiteDatabase db;
     private Context c;
 
@@ -24,8 +24,7 @@ public class DB extends SQLiteOpenHelper {
         db = getWritableDatabase();
         c=context;
         try {
-            crearBase1();
-            Ingreso();
+            crearBase();
         }
         catch (SQLException e)
         {
@@ -134,7 +133,7 @@ public class DB extends SQLiteOpenHelper {
         }
         return false;
     }
-    public void crearBase1()
+    public void crearBase()
     {
         db.execSQL("create table CLIENTE (CLI_CEDULA_RUC VARCHAR(13) not null, CLI_NOMBRE VARCHAR(60), CLI_APELLIDO VARCHAR(60), CLI_TELEFONO VARCHAR(13), CLI_CORREO VARCHAR(60), CLI_DIRECCION VARCHAR(70), CLI_CONTRASENA VARCHAR(8), primary key (CLI_CEDULA_RUC));");
         db.execSQL("create table ESPECIE (SP_CODIGO VARCHAR(5) not null, SP_DESCRIPCION VARCHAR(60), primary key (SP_CODIGO));");
@@ -144,14 +143,10 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL("create unique index CARNET_PK on CARNET (CNT_CODIGO ASC);");
         db.execSQL("create index MASCOTA_TIENE_CARNET_FK on CARNET (MSC_CODIGO ASC);");
         db.execSQL("create unique index CLIENTE_PK on CLIENTE (CLI_CEDULA_RUC ASC);");
-        db.execSQL("create table VACUNA (VAC_CODIGO VARCHAR(8) not null, VAC_DESCRIPCION VARCHAR(60), VAC_LOTE VARCHAR(10), VAC_FABRICANTE VARCHAR(60), primary key (VAC_CODIGO));");
-        db.execSQL("create table DETALLE_VAC (CNT_CODIGO VARCHAR(8) not null, VAC_CODIGO VARCHAR(8) not null, DVC_FECHA_VAC DATE, DVC_REFECHA_VAC DATE, DVC_ESTADO VARCHAR(15), foreign key (CNT_CODIGO) references CARNET (CNT_CODIGO), foreign key (VAC_CODIGO) references VACUNA (VAC_CODIGO));");
+        db.execSQL("create table VACUNA (VAC_CODIGO VARCHAR(8) not null, VAC_DESCRIPCION VARCHAR(60), VAC_FABRICANTE VARCHAR(60), primary key (VAC_CODIGO));");
+        db.execSQL("create table DETALLE_VAC (CNT_CODIGO VARCHAR(8) not null, VAC_CODIGO VARCHAR(8) not null, DVC_FECHA_VAC DATE, DVC_LOTE VARCHAR(10), DVC_REFECHA_VAC DATE, DVC_ESTADO VARCHAR(15), foreign key (CNT_CODIGO) references CARNET (CNT_CODIGO), foreign key (VAC_CODIGO) references VACUNA (VAC_CODIGO));");
         db.execSQL("create index CARNET_TIENE_DET_VAC_FK on DETALLE_VAC (CNT_CODIGO ASC);");
         db.execSQL("create index VAC_TIENE_DET_VAC_FK on DETALLE_VAC (VAC_CODIGO ASC);");
-        db.execSQL("create table VACUNA_RABIA (VCRB_CODIGO VARCHAR(8) not null, VCRB_DESCRIPCION VARCHAR(60), VCRB_LOTE VARCHAR(10), VCRB_FABRICANTE VARCHAR(60), primary key (VCRB_CODIGO));");
-        db.execSQL("create table DETALLE_VAC_RABIA (CNT_CODIGO VARCHAR(8) not null, VCRB_CODIGO VARCHAR(8) not null, DCR_FECHA_VAC DATE, DCR_REFECHA_VAC DATE, DCC_ESTADO VARCHAR(15), foreign key (CNT_CODIGO) references CARNET (CNT_CODIGO), foreign key (VCRB_CODIGO) references VACUNA_RABIA (VCRB_CODIGO));");
-        db.execSQL("create index CARNET_TIENE_DET_RAB_FK on DETALLE_VAC_RABIA (CNT_CODIGO ASC);");
-        db.execSQL("create index VAC_RAB_TIENE_DET_RAB_FK on DETALLE_VAC_RABIA (VCRB_CODIGO ASC);");
         db.execSQL("create unique index ESPECIE_PK on ESPECIE (SP_CODIGO ASC);");
         db.execSQL("create unique index MASCOTA_PK on MASCOTA (MSC_CODIGO ASC);");
         db.execSQL("create index CLIENTE_TIENE_MASCOTA_FK on MASCOTA (CLI_CEDULA_RUC ASC);");
@@ -162,29 +157,6 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL("create unique index VACUNA_RABIA_PK on VACUNA_RABIA (VCRB_CODIGO ASC);");
         db.execSQL("create table VETERINARIO (VET_CEDULA_RUC VARCHAR(13) not null, VET_NOMBRE VARCHAR(60), VET_APELLIDO VARCHAR(60), VET_TELEFONO VARCHAR(13), VET_CORREO VARCHAR(60), VET_DIRECCION VARCHAR(70), VET_CONTRASENA VARCHAR(8), primary key (VET_CEDULA_RUC));");
         db.execSQL("create unique index VETERINARIO_PK on VETERINARIO (VET_CEDULA_RUC ASC);");
-    }
-    public void Ingreso()
-    {
-        db.execSQL("INSERT INTO CLIENTE (CLI_CEDULA_RUC, CLI_NOMBRE, CLI_APELLIDO, CLI_TELEFONO, CLI_CORREO, CLI_DIRECCION, CLI_CONTRASENA) VALUES ('1234567890123', 'Juan', 'Pérez', '0999999999', 'juan.perez@example.com', 'Calle Falsa 123', 'pass1234');");
-        db.execSQL("INSERT INTO CLIENTE (CLI_CEDULA_RUC, CLI_NOMBRE, CLI_APELLIDO, CLI_TELEFONO, CLI_CORREO, CLI_DIRECCION, CLI_CONTRASENA) VALUES ('9876543210987', 'María', 'Gómez', '0988888888', 'maria.gomez@example.com', 'Avenida Siempre Viva 456', 'pass5678');");
-        db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('DOG', 'Perro');");
-        db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('CAT', 'Gato');");
-        db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG01', 'DOG', 'Labrador');");
-        db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT01', 'CAT', 'Siamés');");
-        db.execSQL("INSERT INTO MASCOTA (MSC_CODIGO, CLI_CEDULA_RUC, RZ_CODIGO, MSC_NOMBRE, MSC_SEXO, MSC_COLOR, MSC_FECHA, MSC_DATOS, MSC_ESTADO) VALUES ('MSC001', '1234567890123', 'DOG01', 'Firulais', 'M', 'Marrón', '2022-01-01', 'Muy activo y juguetón', 'Saludable');");
-        db.execSQL("INSERT INTO MASCOTA (MSC_CODIGO, CLI_CEDULA_RUC, RZ_CODIGO, MSC_NOMBRE, MSC_SEXO, MSC_COLOR, MSC_FECHA, MSC_DATOS, MSC_ESTADO) VALUES ('MSC002', '9876543210987', 'CAT01', 'Mish', 'F', 'Blanco', '2022-02-01', 'Tranquila y cariñosa', 'Saludable');");
-        db.execSQL("INSERT INTO CARNET (CNT_CODIGO, MSC_CODIGO) VALUES ('CNT001', 'MSC001');");
-        db.execSQL("INSERT INTO CARNET (CNT_CODIGO, MSC_CODIGO) VALUES ('CNT002', 'MSC002');");
-        db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_DESCRIPCION, VAC_LOTE, VAC_FABRICANTE) VALUES ('VAC001', 'Vacuna Parvovirus', 'Lote123', 'Laboratorios XYZ');");
-        db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_DESCRIPCION, VAC_LOTE, VAC_FABRICANTE) VALUES ('VAC002', 'Vacuna Rabia', 'Lote456', 'Laboratorios ABC');");
-        db.execSQL("INSERT INTO DETALLE_VAC (CNT_CODIGO, VAC_CODIGO, DVC_FECHA_VAC, DVC_REFECHA_VAC, DVC_ESTADO) VALUES ('CNT001', 'VAC001', '2023-01-01', '2024-01-01', 'Administrada');");
-        db.execSQL("INSERT INTO DETALLE_VAC (CNT_CODIGO, VAC_CODIGO, DVC_FECHA_VAC, DVC_REFECHA_VAC, DVC_ESTADO) VALUES ('CNT002', 'VAC002', '2023-02-01', '2024-02-01', 'Administrada');");
-        db.execSQL("INSERT INTO VACUNA_RABIA (VCRB_CODIGO, VCRB_DESCRIPCION, VCRB_LOTE, VCRB_FABRICANTE) VALUES ('VCRB001', 'Vacuna Rabia Clásica', 'Lote789', 'Laboratorios DEF');");
-        db.execSQL("INSERT INTO VACUNA_RABIA (VCRB_CODIGO, VCRB_DESCRIPCION, VCRB_LOTE, VCRB_FABRICANTE) VALUES ('VCRB002', 'Vacuna Rabia Potente', 'Lote101', 'Laboratorios GHI');");
-        db.execSQL("INSERT INTO DETALLE_VAC_RABIA (CNT_CODIGO, VCRB_CODIGO, DCR_FECHA_VAC, DCR_REFECHA_VAC, DCC_ESTADO) VALUES ('CNT001', 'VCRB001', '2023-03-01', '2024-03-01', 'Administrada');");
-        db.execSQL("INSERT INTO DETALLE_VAC_RABIA (CNT_CODIGO, VCRB_CODIGO, DCR_FECHA_VAC, DCR_REFECHA_VAC, DCC_ESTADO) VALUES ('CNT002', 'VCRB002', '2023-04-01', '2024-04-01', 'Administrada');");
-        db.execSQL("INSERT INTO VETERINARIO (VET_CEDULA_RUC, VET_NOMBRE, VET_APELLIDO, VET_TELEFONO, VET_CORREO, VET_DIRECCION, VET_CONTRASENA) VALUES ('1234567890124', 'Pedro', 'López', '0997777777', 'pedro.lopez@example.com', 'Calle Luna 789', 'vet12345');");
-        db.execSQL("INSERT INTO VETERINARIO (VET_CEDULA_RUC, VET_NOMBRE, VET_APELLIDO, VET_TELEFONO, VET_CORREO, VET_DIRECCION, VET_CONTRASENA) VALUES ('9876543210988', 'Ana', 'Martínez', '0986666666', 'ana.martinez@example.com', 'Avenida Sol 321', 'vet67890');");
     }
     public boolean Instruccion(String SQL)
     {

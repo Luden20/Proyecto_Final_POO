@@ -11,36 +11,33 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="64dp"
         android:text="Desparacitacion"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="@+id/button4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Agregar Mascota"
+        android:layout_marginBottom="52dp"
         android:onClick="EntrarInresoMascota"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CrearCliente" />
+        android:text="Agregar Mascota"
+        app:layout_constraintBottom_toTopOf="@+id/BTVacuna"
+        app:layout_constraintEnd_toEndOf="@+id/BTVacuna"
+        app:layout_constraintStart_toStartOf="@+id/BTVacuna" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/BTVacunacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:text="Vacunacion"
+        android:onClick="EntrarVacunacion"
         app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.49" />
+        app:layout_constraintEnd_toEndOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="@+id/button5" />
 
     <TextView
         android:id="@+id/textView6"
@@ -71,8 +68,20 @@
         android:layout_marginTop="180dp"
         android:onClick="EntrarIngresoCliente"
         android:text="Crear Cliente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BTVacuna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:text="Ingreso de Vacuna"
+        android:onClick="EntrarIngresoVacuna"
+        app:layout_constraintBottom_toTopOf="@+id/BTVacunacion"
+        app:layout_constraintEnd_toEndOf="@+id/BTVacunacion"
+        app:layout_constraintStart_toStartOf="@+id/BTVacunacion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

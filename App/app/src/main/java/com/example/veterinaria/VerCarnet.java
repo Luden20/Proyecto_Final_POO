@@ -4,30 +4,16 @@ import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class VerCarnet extends AppCompatActivity {
     private DB db;
@@ -47,7 +33,7 @@ public class VerCarnet extends AppCompatActivity {
         Intent intent=getIntent();
         Cedula=(String)intent.getStringExtra("user");
         db=new DB(this);
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        Spinner spinner = (Spinner)findViewById(R.id.SPMascota);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -82,7 +68,7 @@ public class VerCarnet extends AppCompatActivity {
     }
     public void spinnerActionListener(View v)
     {
-        Spinner sp=findViewById(R.id.spinner);
+        Spinner sp=findViewById(R.id.SPMascota);
         String NombreMascota=sp.getSelectedItem().toString();
         IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+Cedula+"' AND MSC_NOMBRE='"+NombreMascota+"';");
         IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
@@ -102,6 +88,6 @@ public class VerCarnet extends AppCompatActivity {
         String IDRaza=db.get("SELECT RZ_CODIGO FROM MASCOTA WHERE MSC_CODIGO='"+IDMascota+"';");
         TVERMascota.setText("Raza:"+db.get("SELECT R.RZ_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';")+" Especie:"+db.get("SELECT E.SP_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';"));
         ListView Vacunas = findViewById(R.id.Vacunas);
-        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,V.VAC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
+        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,DV.DVC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
     }
 }

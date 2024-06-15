@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Veterinaria"
         tools:targetApi="31">
         <activity
+            android:name=".Vacunacion"
+            android:exported="false" />
+        <activity
+            android:name=".Ingreso_Vacuna"
+            android:exported="false" />
+        <activity
             android:name=".Ingreso_Mascota"
             android:exported="false" />
         <activity
