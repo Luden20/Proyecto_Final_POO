@@ -107,7 +107,7 @@ public class Vacunacion extends AppCompatActivity {
     {
         SPMascota=findViewById(R.id.SPMascota);
         String Mascota=SPMascota.getSelectedItem().toString();
-        IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"' AND MSC_NOMBRE='"+Mascota+"';");
+        IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA WHERE CLI_CEDULA_RUC='"+IDCliente+"' AND MSC_NOMBRE='"+Mascota+"';");
         IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
     }
     public void TP_VACUNAActionListener(View v)
@@ -132,8 +132,6 @@ public class Vacunacion extends AppCompatActivity {
     {
         SPVacuna=findViewById(R.id.SPVacuna);
         Cod_vacuna=SPVacuna.getSelectedItem().toString();
-        TextView TT_LOTE=findViewById(R.id.TT_LOTE);
-        TT_LOTE.setText("LOTE:"+db.get("SELECT VAC_LOTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
         TextView TT_FRAB=findViewById(R.id.TT_FRAB);
         TT_FRAB.setText("FABRICANTE::"+db.get("SELECT VAC_FABRICANTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
         TextView TT_DESC=findViewById(R.id.TT_DESC);
@@ -148,6 +146,9 @@ public class Vacunacion extends AppCompatActivity {
         String currentDate = day + "/" + (month + 1) + "/" + year;
         EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);
         String TT_FECHA_RE=TT_FECHA_REN.getText().toString();
-        db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','"+TT_FECHA_RE+"','Administrada')");
+        EditText TT_LOTE = findViewById(R.id.TT_LOTE);
+        String TT_LOTE_N=TT_LOTE.getText().toString();
+
+        db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','"+TT_LOTE_N+"','"+TT_FECHA_RE+"','Administrada')");
     }
 }
