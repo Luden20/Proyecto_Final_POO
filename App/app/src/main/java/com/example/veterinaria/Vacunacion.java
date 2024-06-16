@@ -3,33 +3,33 @@ package com.example.veterinaria;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import java.util.Calendar;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.widget.ArrayAdapter;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Vacunacion extends AppCompatActivity {
-    private Spinner SPFiltro;
     private Spinner SPCedulaBuscar;
     private Spinner SPMascota;
     private Spinner SPVacuna;
-    public EditText EDBuscado;
-    private EditText EDVacunaBuscada;
+    private Spinner TP_VACUNA;
     private DB db;
-    private String Atributo;
-    private String Ingreso;
     public String IngresoVac;
     private String IDCliente;
     private String IDMascota;
     public String IDCarnet;
+    private String Cod_vacuna;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,50 +41,27 @@ public class Vacunacion extends AppCompatActivity {
             return insets;
         });
         db=new DB(this);
-        Ingreso="";
         IngresoVac="";
-        EDVacunaBuscada=findViewById(R.id.EDVacunaBuscada);
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         SPVacuna=findViewById(R.id.SPVacuna);
-        SPFiltro=findViewById(R.id.SPFiltro);
+        TP_VACUNA=findViewById(R.id.TP_VACUNA);
         SPMascota=findViewById(R.id.SPMascota);
-        EDBuscado=findViewById(R.id.EDBuscador);
-        SPFiltro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SPFiltroActionListener(view);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         SPCedulaBuscar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SPCedulaBuscarActionListener(view);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-        EDBuscado.addTextChangedListener(new TextWatcher() {
+        TP_VACUNA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TP_VACUNAActionListener(view);
             }
-
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EDBuscadoAfterTextChanged(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
         SPVacuna.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -92,10 +69,8 @@ public class Vacunacion extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SPVacunaActionListener(view);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         SPMascota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -109,48 +84,24 @@ public class Vacunacion extends AppCompatActivity {
 
             }
         });
-        EDVacunaBuscada.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                EDVacunaBuscadaOnTextChanged(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA;",this));
         SPMascota.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"';",this));
-        SPFiltro.setAdapter(db.getAtributeArrayAdapter("SELECT * FROM CLIENTE;",this));
         SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE;",this));
-        Ingreso=EDBuscado.getText().toString();
+        List<String> vacunas = Arrays.asList("CONTROL", "RABIA", "DESPARACITACION");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vacunas);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        TP_VACUNA.setAdapter(adapter);
     }
-    public void EDBuscadoAfterTextChanged(CharSequence s)
-    {
-        EDBuscado=findViewById(R.id.EDBuscador);
-        SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
-        Ingreso=EDBuscado.getText().toString();
-        SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"%';",this));
-        Log.d("SQL","SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"'%;");
-    }
+
     public void SPCedulaBuscarActionListener(View v)
     {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         IDCliente=SPCedulaBuscar.getSelectedItem().toString();
         SPMascota.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"';",this));
-
-    }
-    public void SPFiltroActionListener(View view)
-    {
-        SPFiltro=findViewById(R.id.SPFiltro);
-        Atributo=SPFiltro.getSelectedItem().toString();
-        SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '"+Ingreso+"';",this));
+        TextView NOMBRE_CLI=findViewById(R.id.NOMBRE_CLI);
+        NOMBRE_CLI.setText(db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView APELLIDO_CLI=findViewById(R.id.APELLIDO_CLI);
+        APELLIDO_CLI.setText(db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
     }
     public void SPMascotaActionListener(View v)
     {
@@ -159,15 +110,44 @@ public class Vacunacion extends AppCompatActivity {
         IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"' AND MSC_NOMBRE='"+Mascota+"';");
         IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
     }
-    public void EDVacunaBuscadaOnTextChanged(CharSequence s)
+    public void TP_VACUNAActionListener(View v)
     {
-        EDVacunaBuscada=findViewById(R.id.EDVacunaBuscada);
-        IngresoVac=EDVacunaBuscada.getText().toString();
-        SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA WHERE VAC_CODIGO LIKE '"+IngresoVac+"';",this));
+        TP_VACUNA=findViewById(R.id.TP_VACUNA);
+        IngresoVac=TP_VACUNA.getSelectedItem().toString();
+        if (IngresoVac == "CONTROL") {
+            /*SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA WHERE VAC_TIP = C", this));*/
+            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
+        }
+        else if (IngresoVac == "RABIA"){
+            /*SPVacuna.setAdapter(db.getArrayAdapter("SELECT VCRB_CODIGO FROM  VACUNA WHERE VAC_TIP = R" +IngresoVac, this));*/
+            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
+        }
+        else if (IngresoVac == "DESPARACITACION"){
+           /* SPVacuna.setAdapter(db.getArrayAdapter("SELECT DESPARACITACION FROM  " +IngresoVac, this));*/
+            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
+        }
 
     }
     public void SPVacunaActionListener(View v)
     {
-
+        SPVacuna=findViewById(R.id.SPVacuna);
+        Cod_vacuna=SPVacuna.getSelectedItem().toString();
+        TextView TT_LOTE=findViewById(R.id.TT_LOTE);
+        TT_LOTE.setText("LOTE:"+db.get("SELECT VAC_LOTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+        TextView TT_FRAB=findViewById(R.id.TT_FRAB);
+        TT_FRAB.setText("FABRICANTE::"+db.get("SELECT VAC_FABRICANTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+        TextView TT_DESC=findViewById(R.id.TT_DESC);
+        TT_DESC.setText("DESCRIPCION:"+db.get("SELECT VAC_DESCRIPCION FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+    }
+    public void INGRESO(View v)
+    {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH); // El mes es 0-based, es decir, enero es 0.
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        String currentDate = day + "/" + (month + 1) + "/" + year;
+        EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);
+        String TT_FECHA_RE=TT_FECHA_REN.getText().toString();
+        db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','"+TT_FECHA_RE+"','Administrada')");
     }
 }
