@@ -107,7 +107,7 @@ public class Vacunacion extends AppCompatActivity {
     {
         SPMascota=findViewById(R.id.SPMascota);
         String Mascota=SPMascota.getSelectedItem().toString();
-        IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA WHERE CLI_CEDULA_RUC='"+IDCliente+"' AND MSC_NOMBRE='"+Mascota+"';");
+        IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA WHERE CLI_CEDULA_RUC='"+IDCliente+"' AND MSC_NOMBRE LIKE'%"+Mascota+"%';");
         IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
     }
     public void TP_VACUNAActionListener(View v)
