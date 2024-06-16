@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 public class DB extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "Veterinaria_bd1.db";
+    private static final String DATABASE_NAME = "Veterinaria_bd2.db";
     private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
     private Context c;

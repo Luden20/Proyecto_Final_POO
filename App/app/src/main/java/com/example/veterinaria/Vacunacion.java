@@ -148,6 +148,7 @@ public class Vacunacion extends AppCompatActivity {
         String currentDate = day + "/" + (month + 1) + "/" + year;
         EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);
         String TT_FECHA_RE=TT_FECHA_REN.getText().toString();
-        db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','"+TT_FECHA_RE+"','Administrada')");
+        db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','1','"+TT_FECHA_RE+"','Administrada')");
+
     }
 }
