@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 public class DB extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "Veterinaria_bd2.db";
+    private static final String DATABASE_NAME = "Veterinariabd5.db";
     private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
     private Context c;
@@ -24,11 +24,12 @@ public class DB extends SQLiteOpenHelper {
         db = getWritableDatabase();
         c=context;
         try {
-            //crearBase();
+            crearBase();
+            db.execSQL("INSERT INTO VETERINARIO (VET_CEDULA_RUC, VET_NOMBRE, VET_APELLIDO, VET_TELEFONO, VET_CORREO, VET_DIRECCION, VET_CONTRASENA) VALUES ('1726788563', 'Alfonso', 'Chafla', '2337431', 'alfonsoveter1@hotmail.com', 'a 50 metros del redondel el choclo, Sangolqui', 'admin123');");
+            db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('CAT', 'Gato');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT001', '00001', 'Naranja');");
             db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('DOG', 'Perro');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG01', 'DOG', 'Labrador');");
-
-            //DatosPureba();
         }
         catch (SQLException e)
         {
@@ -138,6 +139,15 @@ public class DB extends SQLiteOpenHelper {
         }
         return false;
     }
+    public boolean VeterinarioExiste(String usuario,String Password)
+    {
+        String Existe=get("SELECT VET_CEDULA_RUC FROM CLIENTE WHERE VET_CEDULA_RUC='"+usuario+"' AND VET_CONTRASENA ='"+Password+"';");
+        if (Existe!="null")
+        {
+            return true;
+        }
+        return false;
+    }
     public void crearBase()
     {
         db.execSQL("create table CLIENTE (CLI_CEDULA_RUC VARCHAR(13) not null, CLI_NOMBRE VARCHAR(60), CLI_APELLIDO VARCHAR(60), CLI_TELEFONO VARCHAR(13), CLI_CORREO VARCHAR(60), CLI_DIRECCION VARCHAR(70), CLI_CONTRASENA VARCHAR(8), primary key (CLI_CEDULA_RUC));");
@@ -148,7 +158,7 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL("create unique index CARNET_PK on CARNET (CNT_CODIGO ASC);");
         db.execSQL("create index MASCOTA_TIENE_CARNET_FK on CARNET (MSC_CODIGO ASC);");
         db.execSQL("create unique index CLIENTE_PK on CLIENTE (CLI_CEDULA_RUC ASC);");
-        db.execSQL("create table VACUNA (VAC_CODIGO VARCHAR(8) not null, VAC_DESCRIPCION VARCHAR(60), VAC_FABRICANTE VARCHAR(60), primary key (VAC_CODIGO));");
+        db.execSQL("create table VACUNA (VAC_CODIGO VARCHAR(8) not null, VAC_TIPO VARCHAR(60),VAC_DESCRIPCION VARCHAR(60), VAC_FABRICANTE VARCHAR(60), primary key (VAC_CODIGO));");
         db.execSQL("create table DETALLE_VAC (CNT_CODIGO VARCHAR(8) not null, VAC_CODIGO VARCHAR(8) not null, DVC_FECHA_VAC DATE, DVC_LOTE VARCHAR(10), DVC_REFECHA_VAC DATE, DVC_ESTADO VARCHAR(15), foreign key (CNT_CODIGO) references CARNET (CNT_CODIGO), foreign key (VAC_CODIGO) references VACUNA (VAC_CODIGO));");
         db.execSQL("create index CARNET_TIENE_DET_VAC_FK on DETALLE_VAC (CNT_CODIGO ASC);");
         db.execSQL("create index VAC_TIENE_DET_VAC_FK on DETALLE_VAC (VAC_CODIGO ASC);");

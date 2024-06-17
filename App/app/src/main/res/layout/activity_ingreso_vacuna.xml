@@ -8,12 +8,28 @@
     tools:context=".Ingreso_Vacuna">
 
     <TableLayout
-        android:layout_width="325dp"
-        android:layout_height="142dp"
+        android:layout_width="295dp"
+        android:layout_height="283dp"
         app:layout_constraintBottom_toTopOf="@+id/BTIngresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de producto" />
+
+            <Spinner
+                android:id="@+id/TP_VACUNA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"

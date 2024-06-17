@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,11 +16,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class VerCarnet extends AppCompatActivity {
     private DB db;
     private String Cedula;
     private String IDMascota;
     private String IDCarnet;
+    private Spinner TP_VACUNA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,18 @@ public class VerCarnet extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        TP_VACUNA=findViewById(R.id.TP_VACUNA);
+        TP_VACUNA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TP_VACUNAActionListener(view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
         Intent intent=getIntent();
         Cedula=(String)intent.getStringExtra("user");
@@ -57,6 +74,10 @@ public class VerCarnet extends AppCompatActivity {
             TextView TVDireccion=findViewById(R.id.TVDireccion);
             TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC='"+Cedula+"';"));
             spinner.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+Cedula+"';",this));
+            List<String> vacunas = Arrays.asList("VACUNA CONTROL", "VACUNA RABIA", "DESPARACITANTE");
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vacunas);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            TP_VACUNA.setAdapter(adapter);
         }
         catch(SQLException e)
         {
@@ -65,6 +86,13 @@ public class VerCarnet extends AppCompatActivity {
         }
 
 
+    }
+    public void TP_VACUNAActionListener(View v)
+    {
+        TP_VACUNA=findViewById(R.id.TP_VACUNA);
+        String tipo=TP_VACUNA.getSelectedItem().toString();
+        ListView Vacunas = findViewById(R.id.Vacunas);
+        Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,DV.DVC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"' AND V.VAC_TIPO='"+tipo+"';",this));
     }
     public void spinnerActionListener(View v)
     {

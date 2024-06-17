@@ -84,10 +84,21 @@ public class Vacunacion extends AppCompatActivity {
 
             }
         });
+        TP_VACUNA.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TP_VACUNAActionListener(view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA;",this));
         SPMascota.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"';",this));
         SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE;",this));
-        List<String> vacunas = Arrays.asList("CONTROL", "RABIA", "DESPARACITACION");
+        List<String> vacunas = Arrays.asList("VACUNA CONTROL", "VACUNA RABIA", "DESPARACITANTE");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vacunas);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         TP_VACUNA.setAdapter(adapter);
@@ -114,18 +125,7 @@ public class Vacunacion extends AppCompatActivity {
     {
         TP_VACUNA=findViewById(R.id.TP_VACUNA);
         IngresoVac=TP_VACUNA.getSelectedItem().toString();
-        if (IngresoVac == "CONTROL") {
-            /*SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM VACUNA WHERE VAC_TIP = C", this));*/
-            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
-        }
-        else if (IngresoVac == "RABIA"){
-            /*SPVacuna.setAdapter(db.getArrayAdapter("SELECT VCRB_CODIGO FROM  VACUNA WHERE VAC_TIP = R" +IngresoVac, this));*/
-            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
-        }
-        else if (IngresoVac == "DESPARACITACION"){
-           /* SPVacuna.setAdapter(db.getArrayAdapter("SELECT DESPARACITACION FROM  " +IngresoVac, this));*/
-            SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA", this));
-        }
+        SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA WHERE VAC_TIPO='"+IngresoVac+"'", this));
 
     }
     public void SPVacunaActionListener(View v)
@@ -143,7 +143,7 @@ public class Vacunacion extends AppCompatActivity {
     {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH); // El mes es 0-based, es decir, enero es 0.
+        int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         String currentDate = day + "/" + (month + 1) + "/" + year;
         EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);

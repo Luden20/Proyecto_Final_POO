@@ -8,16 +8,6 @@
     tools:context=".MenuAdmin">
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="Desparacitacion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,12 +22,12 @@
         android:id="@+id/BTVacunacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="Vacunacion"
+        android:layout_marginBottom="116dp"
         android:onClick="EntrarVacunacion"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button5"
-        app:layout_constraintStart_toStartOf="@+id/button5" />
+        android:text="Aplicacion de medicinas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
@@ -78,8 +68,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:text="Ingreso de Vacuna"
         android:onClick="EntrarIngresoVacuna"
+        android:text="Ingreso de medicinas"
         app:layout_constraintBottom_toTopOf="@+id/BTVacunacion"
         app:layout_constraintEnd_toEndOf="@+id/BTVacunacion"
         app:layout_constraintStart_toStartOf="@+id/BTVacunacion" />
