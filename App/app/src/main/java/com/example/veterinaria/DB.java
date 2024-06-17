@@ -24,8 +24,11 @@ public class DB extends SQLiteOpenHelper {
         db = getWritableDatabase();
         c=context;
         try {
-            crearBase();
-            DatosPureba();
+            //crearBase();
+            db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('DOG', 'Perro');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG01', 'DOG', 'Labrador');");
+
+            //DatosPureba();
         }
         catch (SQLException e)
         {

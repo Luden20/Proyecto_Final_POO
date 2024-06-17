@@ -133,7 +133,7 @@ public class Vacunacion extends AppCompatActivity {
         SPVacuna=findViewById(R.id.SPVacuna);
         Cod_vacuna=SPVacuna.getSelectedItem().toString();
         TextView TT_LOTE=findViewById(R.id.TT_LOTE);
-        TT_LOTE.setText("LOTE:"+db.get("SELECT VAC_LOTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+        TT_LOTE.setText("");
         TextView TT_FRAB=findViewById(R.id.TT_FRAB);
         TT_FRAB.setText("FABRICANTE::"+db.get("SELECT VAC_FABRICANTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
         TextView TT_DESC=findViewById(R.id.TT_DESC);
@@ -149,6 +149,5 @@ public class Vacunacion extends AppCompatActivity {
         EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);
         String TT_FECHA_RE=TT_FECHA_REN.getText().toString();
         db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','1','"+TT_FECHA_RE+"','Administrada')");
-
     }
 }
