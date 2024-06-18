@@ -13,7 +13,8 @@
         app:layout_constraintBottom_toTopOf="@+id/BTIngresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952">
 
         <TableRow
             android:layout_width="match_parent"
@@ -91,9 +92,10 @@
         android:id="@+id/BTIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="312dp"
-        android:text="Ingresar"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="#55A84E"
         android:onClick="IngresarVacuna"
+        android:text="Ingresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
