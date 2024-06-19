@@ -7,23 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".MenuAdmin">
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fondoverde" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#55A84E"
         android:onClick="EntrarInresoMascota"
         android:text="Agregar Mascota"
         app:layout_constraintBottom_toTopOf="@+id/BTVacuna"
         app:layout_constraintEnd_toEndOf="@+id/BTVacuna"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="@+id/BTVacuna" />
 
     <Button
         android:id="@+id/BTVacunacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="76dp"
         android:backgroundTint="#55A84E"
         android:onClick="EntrarVacunacion"
         android:text="Aplicacion de medicinas"
@@ -43,15 +54,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="158dp"
-        android:layout_height="125dp"
+        android:layout_width="184dp"
+        android:layout_height="153dp"
         android:src="@drawable/file__1_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <Button
         android:id="@+id/CrearCliente"
@@ -63,19 +74,35 @@
         android:text="Crear Cliente"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
     <Button
         android:id="@+id/BTVacuna"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#55A84E"
         android:onClick="EntrarIngresoVacuna"
         android:text="Ingreso de medicinas"
         app:layout_constraintBottom_toTopOf="@+id/BTVacunacion"
         app:layout_constraintEnd_toEndOf="@+id/BTVacunacion"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="@+id/BTVacunacion" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="263dp"
+        android:layout_height="253dp"
+        android:layout_marginTop="172dp"
+        android:rotation="-32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.006"
+        app:srcCompat="@drawable/estetoscopiocambiadopngbuenoaaaaaaa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,18 @@
     tools:context=".Vacunacion">
 
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/fondoverde" />
+
     <TableLayout
         android:id="@+id/tableLayout2"
         android:layout_width="342dp"
@@ -89,7 +101,7 @@
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintVertical_bias="0.92" />
 
     <EditText
         android:id="@+id/TT_FECHA_REVACUNACION"
@@ -99,14 +111,14 @@
         android:ems="10"
         android:inputType="text"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="540dp" />
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="575dp" />
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="478dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="513dp">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -143,7 +155,7 @@
         android:ems="10"
         android:inputType="text"
         tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="359dp" />
+        tools:layout_editor_absoluteY="431dp" />
 
     <TextView
         android:id="@+id/textView18"
@@ -151,32 +163,32 @@
         android:layout_height="wrap_content"
         android:text="N LOTE:"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="369dp" />
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="441dp" />
 
     <Spinner
         android:id="@+id/SPVacuna"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="285dp" />
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="376dp" />
 
     <Spinner
         android:id="@+id/TP_VACUNA"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="285dp" />
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="376dp" />
 
     <Spinner
         android:id="@+id/SPMascota"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="220dp" />
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="313dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -185,8 +197,8 @@
         android:layout_weight="1"
         android:text="Mascota"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="212dp" />
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="305dp" />
 
     <TextView
         android:id="@+id/APELLIDO_CLI"
@@ -195,8 +207,8 @@
         android:layout_weight="1"
         android:text="Apellido"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="154dp" />
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="238dp" />
 
     <TextView
         android:id="@+id/NOMBRE_CLI"
@@ -205,22 +217,31 @@
         android:layout_weight="1"
         android:text="Nombre"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="154dp" />
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="238dp" />
 
     <Spinner
         android:id="@+id/SPCedulaBuscar"
         android:layout_width="126dp"
         android:layout_height="46dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="84dp" />
+        android:background="@color/white"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="143dp" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Seleccione Cedula"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="64dp" />
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="131dp"
+        android:layout_height="126dp"
+        app:srcCompat="@drawable/vacunada"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="63dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

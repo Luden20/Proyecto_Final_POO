@@ -8,10 +8,23 @@
     android:layout_height="match_parent"
     tools:context=".VerCarnet">
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/fondoverde" />
+
     <Spinner
         android:id="@+id/SPMascota"
         android:layout_width="198dp"
         android:layout_height="50dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.826"
@@ -36,14 +49,14 @@
         android:layout_width="336dp"
         android:layout_height="112dp"
         android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/SPMascota"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548"
-        android:gravity="center_horizontal">
+        app:layout_constraintVertical_bias="0.392">
 
         <TextView
             android:id="@+id/TVNombre"
@@ -79,14 +92,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="342dp"
-        android:layout_height="171dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="347dp"
+        android:layout_height="196dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/TP_VACUNA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
@@ -133,7 +145,7 @@
 
         <TextView
             android:id="@+id/TVERMascota"
-            android:layout_width="193dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:text="Raza y Especies" />
 
@@ -146,7 +158,6 @@
         android:layout_marginBottom="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -154,8 +165,10 @@
         android:layout_width="234dp"
         android:layout_height="41dp"
         android:layout_marginBottom="28dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/Vacunas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
