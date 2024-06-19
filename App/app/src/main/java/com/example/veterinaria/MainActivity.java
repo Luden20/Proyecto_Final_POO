@@ -32,23 +32,31 @@ public class MainActivity extends AppCompatActivity {
 
         EditText ETUser= findViewById(R.id.User);
         String user = ETUser.getText().toString();
-        String Existe=db.get("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE CLI_CEDULA_RUC='"+user+"' AND CLI_CONTRASENA='"+pass+"';");
         if(db.VeterinarioExiste(user, pass))
         {
             Intent intent=new Intent(this, MenuAdmin.class);
             startActivity(intent);
         }
-        if(db.UsuarioExiste(user, pass))
-        {
-            Intent intent =new Intent(this, VerCarnet.class);
-            intent.putExtra("user",user);
-            startActivity(intent);
-        }
         else
         {
-            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+            if(db.UsuarioExiste(user, pass))
+            {
+                Intent intent =new Intent(this, VerCarnet.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+            }
         }
 
+
+    }
+    public void EntrarIngresoCliente(View v)
+    {
+        Intent i=new Intent(this, ingresoCliente.class);
+        startActivity(i);
     }
 
 }

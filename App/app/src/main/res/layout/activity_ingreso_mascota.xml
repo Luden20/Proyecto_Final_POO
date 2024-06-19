@@ -17,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/fondoverde" />
+        app:srcCompat="@drawable/fondoverde"
+        android:scaleType="fitXY"/>
 
     <Spinner
         android:id="@+id/SPFiltro"
@@ -34,17 +35,17 @@
 
     <EditText
         android:id="@+id/EDBuscador"
-        android:layout_width="160dp"
-        android:layout_height="45dp"
+        android:layout_width="144dp"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.068" />
 
     <Spinner
         android:id="@+id/SPCedulaBuscar"
@@ -254,7 +255,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886"
+        app:layout_constraintVertical_bias="0.943"
         app:srcCompat="@drawable/lupa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

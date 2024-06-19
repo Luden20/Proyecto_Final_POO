@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fondoverde" />
+        app:srcCompat="@drawable/fondoverde"
+        android:scaleType="fitXY"/>
 
     <Button
         android:id="@+id/Ingreso"
@@ -196,28 +197,29 @@
         android:text="Ingreso de Cliente"
         android:textColor="#55A84E"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="76dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="174dp"
         android:layout_height="158dp"
         android:layout_marginTop="612dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gato_silueta" />
+        app:srcCompat="@drawable/gato_silueta"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="210dp"
         android:layout_height="387dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="532dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/perro_silueta" />
 
