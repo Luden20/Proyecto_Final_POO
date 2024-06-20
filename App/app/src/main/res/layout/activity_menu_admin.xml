@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuAdmin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView8"
@@ -18,32 +22,33 @@
         app:srcCompat="@drawable/fondoverde"
         android:scaleType="fitXY"/>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#55A84E"
-        android:onClick="EntrarInresoMascota"
-        android:text="Agregar Mascota"
-        app:layout_constraintBottom_toTopOf="@+id/BTVacuna"
-        app:layout_constraintEnd_toEndOf="@+id/BTVacuna"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="@+id/BTVacuna" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:backgroundTint="#55A84E"
+            android:onClick="EntrarInresoMascota"
+            android:text="Agregar Mascota"
+            app:layout_constraintBottom_toTopOf="@+id/BTVacuna"
+            app:layout_constraintEnd_toEndOf="@+id/BTVacuna"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/BTVacuna" />
 
-    <Button
-        android:id="@+id/BTVacunacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="#55A84E"
-        android:onClick="EntrarVacunacion"
-        android:text="Aplicacion de medicinas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/BTVacunacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="388dp"
+            android:backgroundTint="#55A84E"
+            android:onClick="EntrarVacunacion"
+            android:text="Aplicacion de medicinas"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+        <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,35 +70,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.027" />
 
-    <Button
-        android:id="@+id/CrearCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:backgroundTint="#55A84E"
-        android:onClick="EntrarIngresoCliente"
-        android:text="Crear Cliente"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        <Button
+            android:id="@+id/CrearCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:backgroundTint="#55A84E"
+            android:onClick="EntrarIngresoCliente"
+            android:text="Crear Cliente"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.801" />
 
-    <Button
-        android:id="@+id/BTVacuna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#55A84E"
-        android:onClick="EntrarIngresoVacuna"
-        android:text="Ingreso de medicinas"
-        app:layout_constraintBottom_toTopOf="@+id/BTVacunacion"
-        app:layout_constraintEnd_toEndOf="@+id/BTVacunacion"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="@+id/BTVacunacion" />
+        <Button
+            android:id="@+id/BTVacuna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="88dp"
+            android:backgroundTint="#55A84E"
+            android:onClick="EntrarIngresoVacuna"
+            android:text="Ingreso de medicinas"
+            app:layout_constraintBottom_toTopOf="@+id/BTVacunacion"
+            app:layout_constraintEnd_toEndOf="@+id/BTVacunacion"
+            app:layout_constraintHorizontal_bias="0.944"
+            app:layout_constraintStart_toStartOf="@+id/BTVacunacion" />
 
-    <ImageView
+        <ImageView
         android:id="@+id/imageView5"
         android:layout_width="263dp"
         android:layout_height="253dp"
@@ -107,3 +112,5 @@
         app:srcCompat="@drawable/estetoscopiocambiadopngbuenoaaaaaaa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
