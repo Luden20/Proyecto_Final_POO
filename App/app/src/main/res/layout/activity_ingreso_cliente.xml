@@ -57,7 +57,7 @@
                 android:layout_width="268dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColor="#404040" />
 
         </TableRow>
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="phone"
                 android:textColor="#404040" />
 
         </TableRow>
@@ -162,7 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:textColor="#404040" />
 
         </TableRow>

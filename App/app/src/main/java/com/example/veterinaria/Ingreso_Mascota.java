@@ -172,7 +172,7 @@ public class Ingreso_Mascota extends AppCompatActivity {
         String Sexo=TBSexo.getText().toString();
         Integer Cantidad=Integer.parseInt(db.get("SELECT COUNT(*) FROM MASCOTA"))+1;
         String IDMacota=String.format("MSC%03d", Cantidad);;
-        db.Instruccion("INSERT INTO MASCOTA VALUES ('"+IDMacota+"', '"+IDCliente+"', '"+IDRaza+"', '"+Nombre+"', '"+Sexo+"', '"+Color+"', '"+Fecha+"', '"+Datos+"', 'Activa');");
+        db.Instruccion("INSERT INTO MASCOTA VALUES ('"+IDMacota+"', '"+IDCliente+"', '"+IDRaza+"', '"+Nombre+"', '"+Sexo+"', '"+Color+"', '"+Fecha+"', '"+Datos+"', 'Activa');","Ingreso Correcto","Ingreso Incorrecto");
         db.Instruccion("INSERT INTO CARNET VALUES('"+IDMacota+"','"+IDMacota+"')");
     }
 }

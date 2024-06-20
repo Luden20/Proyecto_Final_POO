@@ -2,6 +2,7 @@ package com.example.veterinaria;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Pasar(View v)
     {
+
         EditText ETPassword = findViewById(R.id.Password);
         String pass = ETPassword.getText().toString();
 
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void EntrarIngresoCliente(View v)
     {
+
         Intent i=new Intent(this, ingresoCliente.class);
         startActivity(i);
     }
-
 }

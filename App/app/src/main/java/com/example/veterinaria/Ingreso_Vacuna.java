@@ -45,6 +45,6 @@ public class Ingreso_Vacuna extends AppCompatActivity {
         String Fabricante=ETFabricante.getText().toString();
         Spinner TP_VACUNA=findViewById(R.id.TP_VACUNA);
         String tipo=TP_VACUNA.getSelectedItem().toString();
-        db.Instruccion("INSERT INTO VACUNA VALUES('"+Codigo+"','"+tipo+"','"+Descripcion+"','"+Fabricante+"')");
+        db.Instruccion("INSERT INTO VACUNA VALUES('"+Codigo+"','"+tipo+"','"+Descripcion+"','"+Fabricante+"')","Ingreso vac correcto","Datos incorrectos");
     }
 }

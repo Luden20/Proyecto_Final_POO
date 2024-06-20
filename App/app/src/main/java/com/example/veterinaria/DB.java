@@ -184,7 +184,6 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL("create table VETERINARIO (VET_CEDULA_RUC VARCHAR(13) not null, VET_NOMBRE VARCHAR(60), VET_APELLIDO VARCHAR(60), VET_TELEFONO VARCHAR(13), VET_CORREO VARCHAR(60), VET_DIRECCION VARCHAR(70), VET_CONTRASENA VARCHAR(8), primary key (VET_CEDULA_RUC));");
         db.execSQL("create unique index VETERINARIO_PK on VETERINARIO (VET_CEDULA_RUC ASC);");
     }
-
     public boolean Instruccion(String SQL)
     {
         try
@@ -194,7 +193,21 @@ public class DB extends SQLiteOpenHelper {
         }
         catch (SQLException e)
         {
-            Toast.makeText(c,"ERROR ",Toast.LENGTH_SHORT).show();
+            Log.e("SQLERROR",e.getMessage());
+            return false;
+        }
+    }
+    public boolean Instruccion(String SQL,String MA,String ME)
+    {
+        try
+        {
+            db.execSQL(SQL);
+            Toast.makeText(c,MA,Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        catch (SQLException e)
+        {
+            Toast.makeText(c,ME,Toast.LENGTH_SHORT).show();
             Log.e("SQLERROR",e.getMessage());
             return false;
         }

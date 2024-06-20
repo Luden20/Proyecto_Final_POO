@@ -40,7 +40,7 @@ public class ingresoCliente extends AppCompatActivity {
         EditText EDPassword=findViewById(R.id.EDPassword);
         String Password =EDPassword.getText().toString();
 
-        db.Instruccion("INSERT INTO CLIENTE (CLI_CEDULA_RUC, CLI_NOMBRE, CLI_APELLIDO, CLI_TELEFONO, CLI_CORREO, CLI_DIRECCION, CLI_CONTRASENA) VALUES ('"+Cedula+"', '"+Nombre+"', '"+Apellido+"', '"+Telefono+"', '"+Correo+"', '"+Direccion+"', '"+Password+"');");
+        db.Instruccion("INSERT INTO CLIENTE (CLI_CEDULA_RUC, CLI_NOMBRE, CLI_APELLIDO, CLI_TELEFONO, CLI_CORREO, CLI_DIRECCION, CLI_CONTRASENA) VALUES ('"+Cedula+"', '"+Nombre+"', '"+Apellido+"', '"+Telefono+"', '"+Correo+"', '"+Direccion+"', '"+Password+"');","Cliente creado","Error, revise los datos");
 
     }
 }
