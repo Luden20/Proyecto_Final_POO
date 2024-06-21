@@ -25,12 +25,14 @@
             android:id="@+id/BT_ING_DET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#55A84E"
             android:onClick="INGRESO"
             android:text="Ingreso"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="675dp" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/TT_FECHA_REVACUNACION"
@@ -123,12 +125,13 @@
             android:layout_width="207dp"
             android:layout_height="38dp"
             android:layout_marginEnd="28dp"
+            android:layout_marginBottom="40dp"
             android:layout_weight="1"
             android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/TT_LOTE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/SPVacuna"
-            tools:layout_editor_absoluteY="424dp" />
+            app:layout_constraintStart_toEndOf="@+id/SPVacuna" />
 
         <Spinner
             android:id="@+id/SPMascota"
