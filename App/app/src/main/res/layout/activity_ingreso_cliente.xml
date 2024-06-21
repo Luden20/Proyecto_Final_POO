@@ -43,16 +43,20 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Cedula"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDCedula"
                     android:layout_width="268dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="number"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -64,16 +68,20 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Nombre"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="text"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -85,16 +93,20 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Apellido"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDApellido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="text"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -106,16 +118,20 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Telefono"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="phone"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -127,16 +143,20 @@
                     android:id="@+id/textView19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Direccion"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDDireccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="text"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -148,16 +168,20 @@
                     android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Correo"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDCorreo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:fontFamily="serif-monospace"
                     android:inputType="textEmailAddress"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -169,8 +193,10 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Password"
-                    android:textColor="@color/Negro" />
+                    android:textColor="@color/Negro"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/EDPassword"
@@ -178,7 +204,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="text"
-                    android:textColor="#404040" />
+                    android:textColor="#404040"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -188,6 +215,7 @@
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Ingreso de Cliente"
             android:textColor="#55A84E"
             android:textSize="34sp"
@@ -202,9 +230,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="156dp"
             android:backgroundTint="#55a84e"
+            android:fontFamily="serif"
             android:onClick="Ingresar"
             android:rotationX="0"
             android:text="Ingreso"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.526"
