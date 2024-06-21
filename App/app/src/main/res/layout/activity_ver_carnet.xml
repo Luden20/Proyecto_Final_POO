@@ -28,7 +28,7 @@
             android:id="@+id/SPMascota"
             android:layout_width="198dp"
             android:layout_height="50dp"
-            android:background="@color/white"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.726"
@@ -38,10 +38,13 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="63dp"
-            android:layout_height="21dp"
+            android:layout_width="96dp"
+            android:layout_height="18dp"
             android:layout_marginEnd="12dp"
+            android:fontFamily="serif-monospace"
             android:text="Mascota"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/SPMascota"
             app:layout_constraintEnd_toStartOf="@+id/SPMascota"
             app:layout_constraintHorizontal_bias="0.65"
@@ -65,31 +68,41 @@
                 android:id="@+id/TVNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="serif-monospace"
+                android:text="TextView"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVApellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="text" />
+                android:fontFamily="serif-monospace"
+                android:text="text"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVTelefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="serif-monospace"
+                android:text="TextView"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVDireccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="serif-monospace"
+                android:text="TextView"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVCorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="serif-monospace"
+                android:text="TextView"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -110,14 +123,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Sexo" />
+                android:fontFamily="serif-monospace"
+                android:text="Sexo"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVNombreMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Nombre" />
+                android:fontFamily="serif-monospace"
+                android:text="Nombre"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVColorMascota"
@@ -125,33 +143,43 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="12dp"
-                android:text="Color" />
+                android:fontFamily="serif-monospace"
+                android:text="Color"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVFNMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Fecha Nacimiento" />
+                android:fontFamily="serif-monospace"
+                android:text="Fecha Nacimiento"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVDPMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Detalle" />
+                android:fontFamily="serif-monospace"
+                android:text="Detalle"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVEstadoMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estado" />
+                android:fontFamily="serif-monospace"
+                android:text="Estado"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TVERMascota"
-                android:layout_width="125dp"
+                android:layout_width="216dp"
                 android:layout_height="wrap_content"
-                android:text="Raza y Especies" />
+                android:fontFamily="serif-monospace"
+                android:text="Raza y Especies"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -170,7 +198,7 @@
             android:layout_width="234dp"
             android:layout_height="41dp"
             android:layout_marginBottom="28dp"
-            android:background="@color/white"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toTopOf="@+id/Vacunas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
