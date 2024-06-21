@@ -25,8 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#55A84E"
+            android:fontFamily="serif"
             android:onClick="IngresarVacuna"
             android:text="Ingresar"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +53,9 @@
                     android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tipo de producto" />
+                    android:fontFamily="serif-monospace"
+                    android:text="Tipo de producto"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/TP_VACUNA"
@@ -67,14 +71,18 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Codigo" />
+                    android:fontFamily="serif-monospace"
+                    android:text="Codigo"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ETCodigo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:fontFamily="serif-monospace"
+                    android:inputType="text"
+                    android:textStyle="bold" />
             </TableRow>
 
             <TableRow
@@ -85,14 +93,18 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descripcion" />
+                    android:fontFamily="serif-monospace"
+                    android:text="Descripcion"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ETDescripcion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:fontFamily="serif-monospace"
+                    android:inputType="text"
+                    android:textStyle="bold" />
             </TableRow>
 
             <TableRow
@@ -103,14 +115,18 @@
                     android:id="@+id/textView17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fabricante" />
+                    android:fontFamily="serif-monospace"
+                    android:text="Fabricante"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/ETFabricante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:fontFamily="serif-monospace"
+                    android:inputType="text"
+                    android:textStyle="bold" />
             </TableRow>
 
         </TableLayout>
