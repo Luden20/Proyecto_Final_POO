@@ -13,26 +13,14 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="731dp"
+            android:layout_height="725dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.6"
             app:srcCompat="@drawable/fondoverde" />
-
-        <Spinner
-            android:id="@+id/SPFiltro"
-            android:layout_width="143dp"
-            android:layout_height="45dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/EDBuscador"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/EDBuscador"
@@ -41,45 +29,80 @@
             android:ems="10"
             android:inputType="text"
             android:text="Name"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.119" />
+            app:layout_constraintVertical_bias="0.637" />
 
         <Spinner
-            android:id="@+id/SPEspecie"
-            android:layout_width="269dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="464dp"
+            android:id="@+id/SPFiltro"
+            android:layout_width="143dp"
+            android:layout_height="45dp"
             android:background="@color/white"
-            android:backgroundTint="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.618" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="38dp"
+            android:layout_height="39dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.655"
+            app:srcCompat="@drawable/lupa" />
 
         <Spinner
             android:id="@+id/SPRaza"
             android:layout_width="271dp"
             android:layout_height="53dp"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="16dp"
             android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/SPEspecie"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/SPEspecie"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SPCedulaBuscar" />
+
+        <Spinner
+            android:id="@+id/SPCedulaBuscar"
+            android:layout_width="271dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:outlineAmbientShadowColor="#0000FF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SPEspecie" />
+
+        <Spinner
+            android:id="@+id/SPEspecie"
+            android:layout_width="269dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:backgroundTint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="191dp"
             android:layout_height="104dp"
-            android:layout_marginBottom="64dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/SPEspecie"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16">
 
             <TextView
                 android:id="@+id/TVNombre"
@@ -111,21 +134,13 @@
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
-            <Spinner
-                android:id="@+id/SPCedulaBuscar"
-                android:layout_width="273dp"
-                android:layout_height="51dp"
-                android:layout_marginTop="252dp"
-                android:background="@color/white"
-                android:outlineAmbientShadowColor="#0000FF" />
-
         </LinearLayout>
 
         <TableLayout
             android:id="@+id/tableLayout"
-            android:layout_width="323dp"
-            android:layout_height="228dp"
-            app:layout_constraintBottom_toTopOf="@+id/BTIngreso"
+            android:layout_width="283dp"
+            android:layout_height="238dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SPRaza">
@@ -230,7 +245,7 @@
             android:id="@+id/BTIngreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:background="#55a84e"
             android:backgroundTint="#55a84e"
             android:onClick="Ingreso"
@@ -240,18 +255,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout"
             app:rippleColor="#55a84e" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="38dp"
-            android:layout_height="39dp"
-            android:layout_marginBottom="104dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-            app:layout_constraintEnd_toStartOf="@+id/EDBuscador"
-            app:layout_constraintHorizontal_bias="0.652"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/lupa" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

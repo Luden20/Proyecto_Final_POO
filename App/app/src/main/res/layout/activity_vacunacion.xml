@@ -14,60 +14,46 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="731dp"
+            android:layout_height="734dp"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/fondoverde" />
+            app:srcCompat="@drawable/fondoverde"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp" />
 
         <Button
             android:id="@+id/BT_ING_DET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="544dp"
+            android:layout_marginBottom="48dp"
             android:backgroundTint="#55A84E"
             android:onClick="INGRESO"
             android:text="Ingreso"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintHorizontal_bias="0.499"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/TT_FECHA_REVACUNACION"
             android:layout_width="210dp"
             android:layout_height="53dp"
-            android:layout_marginStart="84dp"
-            android:layout_marginTop="624dp"
-            android:layout_marginEnd="118dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="date"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/BT_ING_DET"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.646" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TableRow
             android:id="@+id/tableRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="513dp"
-            android:layout_marginBottom="156dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="367dp"
+            android:layout_height="62dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView22"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -100,75 +86,64 @@
 
         <EditText
             android:id="@+id/TT_LOTE"
-            android:layout_width="233dp"
-            android:layout_height="29dp"
-            android:layout_marginEnd="66dp"
-            android:layout_marginBottom="252dp"
+            android:layout_width="223dp"
+            android:layout_height="24dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView18"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            tools:layout_editor_absoluteY="443dp" />
 
         <TextView
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="441dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginBottom="16dp"
             android:text="N LOTE:"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tableRow"
-            app:layout_constraintEnd_toStartOf="@+id/TT_LOTE"
-            app:layout_constraintHorizontal_bias="0.012"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/SPVacuna"
-            android:layout_width="152dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="235dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="333dp"
+            android:layout_width="148dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="260dp"
+            android:layout_marginBottom="12dp"
             android:layout_weight="1"
             android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/TP_VACUNA"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toTopOf="@+id/TT_LOTE"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Spinner
             android:id="@+id/TP_VACUNA"
             android:layout_width="207dp"
             android:layout_height="38dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/textView18"
             app:layout_constraintEnd_toStartOf="@+id/SPVacuna"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.214"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/SPMascota"
-            android:layout_width="224dp"
+            android:layout_width="212dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="36dp"
             android:layout_weight="1"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/SPVacuna"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toEndOf="@+id/textView4" />
+            app:layout_constraintHorizontal_bias="0.316"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/APELLIDO_CLI"
+            app:layout_constraintVertical_bias="0.062" />
 
         <TextView
             android:id="@+id/textView4"
@@ -180,80 +155,80 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/TP_VACUNA"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.205"
+            app:layout_constraintHorizontal_bias="0.132"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/APELLIDO_CLI"
             android:layout_width="135dp"
             android:layout_height="23dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="236dp"
             android:layout_weight="1"
             android:text="Apellido"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/NOMBRE_CLI"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/NOMBRE_CLI" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/NOMBRE_CLI"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/NOMBRE_CLI"
             android:layout_width="132dp"
             android:layout_height="22dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginBottom="56dp"
             android:layout_weight="1"
             android:text="Nombre"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toStartOf="@+id/APELLIDO_CLI"
-            app:layout_constraintHorizontal_bias="0.435"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.971" />
 
         <Spinner
             android:id="@+id/SPCedulaBuscar"
             android:layout_width="126dp"
             android:layout_height="46dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="68dp"
             android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/NOMBRE_CLI"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView23" />
+            app:layout_constraintHorizontal_bias="0.21"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="64dp"
             android:text="Seleccione Cedula"
-            app:layout_constraintBottom_toTopOf="@+id/NOMBRE_CLI"
-            app:layout_constraintEnd_toStartOf="@+id/SPCedulaBuscar"
-            app:layout_constraintHorizontal_bias="0.175"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/SPCedulaBuscar"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintHorizontal_bias="0.552"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.662" />
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="182dp"
-            android:layout_height="91dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView23"
+            android:layout_width="166dp"
+            android:layout_height="151dp"
+            app:layout_constraintBottom_toTopOf="@+id/APELLIDO_CLI"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.545"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toEndOf="@+id/SPCedulaBuscar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.52"
             app:srcCompat="@drawable/vacunada" />
 
         <TextView
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="594dp"
-            android:layout_marginBottom="118dp"
             android:text="Fecha de Reaplicacion"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/TT_FECHA_REVACUNACION"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.051" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
