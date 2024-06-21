@@ -27,8 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:backgroundTint="#55A84E"
+            android:fontFamily="serif"
             android:onClick="INGRESO"
             android:text="Ingreso"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -40,8 +42,10 @@
             android:layout_height="53dp"
             android:layout_weight="1"
             android:ems="10"
+            android:fontFamily="serif-monospace"
             android:inputType="date"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/BT_ING_DET"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -70,15 +74,19 @@
                     android:id="@+id/TT_DESC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Descripción"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/TT_FRAB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:text="Fabricación"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </TableRow>
@@ -90,7 +98,10 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:ems="10"
+            android:fontFamily="serif-monospace"
             android:inputType="text"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tableRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.31"
@@ -101,8 +112,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="72dp"
+            android:fontFamily="serif-monospace"
             android:text="N LOTE:"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/TT_LOTE"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/TT_LOTE"
@@ -114,7 +127,7 @@
             android:layout_height="39dp"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toBottomOf="@+id/TP_VACUNA"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/TP_VACUNA"
@@ -127,7 +140,7 @@
             android:layout_marginEnd="28dp"
             android:layout_marginBottom="40dp"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toTopOf="@+id/TT_LOTE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -139,23 +152,25 @@
             android:layout_height="50dp"
             android:layout_marginBottom="40dp"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toTopOf="@+id/TP_VACUNA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="94dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_width="145dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="20dp"
             android:layout_weight="1"
+            android:fontFamily="serif-monospace"
             android:text="Mascota"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/SPMascota"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/SPMascota"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.812" />
 
         <TextView
             android:id="@+id/APELLIDO_CLI"
@@ -164,8 +179,10 @@
             android:layout_marginEnd="236dp"
             android:layout_marginBottom="24dp"
             android:layout_weight="1"
+            android:fontFamily="serif-monospace"
             android:text="Apellido"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/SPMascota"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -175,8 +192,10 @@
             android:layout_height="22dp"
             android:layout_marginStart="184dp"
             android:layout_weight="1"
+            android:fontFamily="serif-monospace"
             android:text="Nombre"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/APELLIDO_CLI"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/APELLIDO_CLI"
@@ -186,19 +205,21 @@
             android:id="@+id/SPCedulaBuscar"
             android:layout_width="126dp"
             android:layout_height="46dp"
-            android:layout_marginEnd="100dp"
-            android:background="@color/white"
+            android:layout_marginEnd="84dp"
+            android:background="@color/VerdeClaroMascota"
             app:layout_constraintBottom_toTopOf="@+id/NOMBRE_CLI"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView9"
-            app:layout_constraintVertical_bias="0.56" />
+            app:layout_constraintVertical_bias="0.556" />
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
+            android:fontFamily="serif-monospace"
             android:text="Seleccione Cedula"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/APELLIDO_CLI"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView9"
@@ -219,7 +240,10 @@
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
             android:text="Fecha de Reaplicacion"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/TT_FECHA_REVACUNACION"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
