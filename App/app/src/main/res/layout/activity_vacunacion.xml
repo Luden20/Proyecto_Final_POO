@@ -19,7 +19,7 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/fondoverde"
             tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="3dp" />
+            tools:layout_editor_absoluteY="0dp" />
 
         <Button
             android:id="@+id/BT_ING_DET"
@@ -188,8 +188,8 @@
 
         <TextView
             android:id="@+id/NOMBRE_CLI"
-            android:layout_width="132dp"
-            android:layout_height="22dp"
+            android:layout_width="134dp"
+            android:layout_height="21dp"
             android:layout_marginStart="184dp"
             android:layout_weight="1"
             android:fontFamily="serif-monospace"
