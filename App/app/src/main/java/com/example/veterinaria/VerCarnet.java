@@ -100,6 +100,8 @@ public class VerCarnet extends AppCompatActivity {
         String NombreMascota=sp.getSelectedItem().toString();
         IDMascota=db.get("SELECT MSC_CODIGO FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+Cedula+"' AND MSC_NOMBRE='"+NombreMascota+"';");
         IDCarnet =db.get("SELECT CNT_CODIGO FROM CARNET WHERE MSC_CODIGO='"+IDMascota+"';");
+        TextView TVCodigo=findViewById(R.id.tTVCodigo);
+        TVCodigo.setText("Codigo:"+IDMascota);
         TextView TVNombreMascota=findViewById(R.id.TVNombreMascota);
         TVNombreMascota.setText("Nombre Mascota:"+NombreMascota);
         TextView TVSexoMascota=findViewById(R.id.TVSexoMascota);
@@ -117,5 +119,7 @@ public class VerCarnet extends AppCompatActivity {
         TVERMascota.setText("Raza:"+db.get("SELECT R.RZ_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';")+" Especie:"+db.get("SELECT E.SP_DESCRIPCION FROM MASCOTA M INNER JOIN RAZA R ON R.RZ_CODIGO=M.RZ_CODIGO INNER JOIN ESPECIE E ON E.SP_CODIGO=R.SP_CODIGO WHERE M.MSC_CODIGO='"+IDMascota+"';"));
         ListView Vacunas = findViewById(R.id.Vacunas);
         Vacunas.setAdapter(db.getAllArrayAdapter("SELECT V.VAC_DESCRIPCION,DV.DVC_LOTE,V.VAC_FABRICANTE,DV.DVC_FECHA_VAC,DV.DVC_REFECHA_VAC,DV.DVC_ESTADO FROM VACUNA V INNER JOIN DETALLE_VAC DV ON V.VAC_CODIGO=DV.VAC_CODIGO WHERE CNT_CODIGO='"+IDCarnet+"';",this));
+        TP_VACUNA.setSelection(0);
+        TP_VACUNAActionListener(v);
     }
 }

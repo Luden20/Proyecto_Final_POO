@@ -160,6 +160,7 @@ public class Ingreso_Mascota extends AppCompatActivity {
 
     public void Ingreso(View v)
     {
+
         EditText ETNombre=findViewById(R.id.ETNombre);
         String Nombre=ETNombre.getText().toString();
         EditText ETColor=findViewById(R.id.ETColor);
@@ -170,9 +171,9 @@ public class Ingreso_Mascota extends AppCompatActivity {
         String Datos= ETDatos.getText().toString();
         ToggleButton TBSexo=findViewById(R.id.TBSexo);
         String Sexo=TBSexo.getText().toString();
-        Integer Cantidad=Integer.parseInt(db.get("SELECT COUNT(*) FROM MASCOTA"))+1;
-        String IDMacota=String.format("MSC%03d", Cantidad);;
-        db.Instruccion("INSERT INTO MASCOTA VALUES ('"+IDMacota+"', '"+IDCliente+"', '"+IDRaza+"', '"+Nombre+"', '"+Sexo+"', '"+Color+"', '"+Fecha+"', '"+Datos+"', 'Activa');","Ingreso Correcto","Ingreso Incorrecto");
+        EditText ETCodigo=findViewById(R.id.ETCodigo);
+        String IDMacota=ETCodigo.getText().toString();
+        db.Instruccion("INSERT INTO MASCOTA VALUES ('"+IDMacota+"', '"+IDCliente+"', '"+IDRaza+"', '"+Nombre+"', '"+Sexo+"', '"+Color+"', '"+Fecha+"', '"+Datos+"', 'Activa');","Ingreso Correcto","Error:Codigo ya ingresado");
         db.Instruccion("INSERT INTO CARNET VALUES('"+IDMacota+"','"+IDMacota+"')");
     }
 }

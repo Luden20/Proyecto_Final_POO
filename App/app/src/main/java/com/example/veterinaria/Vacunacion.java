@@ -135,9 +135,9 @@ public class Vacunacion extends AppCompatActivity {
         TextView TT_LOTE=findViewById(R.id.TT_LOTE);
         TT_LOTE.setText("");
         TextView TT_FRAB=findViewById(R.id.TT_FRAB);
-        TT_FRAB.setText("FABRICANTE::"+db.get("SELECT VAC_FABRICANTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+        TT_FRAB.setText("Fab:"+db.get("SELECT VAC_FABRICANTE FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
         TextView TT_DESC=findViewById(R.id.TT_DESC);
-        TT_DESC.setText("DESCRIPCION:"+db.get("SELECT VAC_DESCRIPCION FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
+        TT_DESC.setText("Desc:"+db.get("SELECT VAC_DESCRIPCION FROM VACUNA WHERE VAC_CODIGO='"+Cod_vacuna+"';"));
     }
     public void INGRESO(View v)
     {

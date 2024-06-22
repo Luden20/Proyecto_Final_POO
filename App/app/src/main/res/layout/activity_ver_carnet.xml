@@ -18,10 +18,9 @@
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/fondoverde" />
 
         <Spinner
@@ -54,8 +53,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="375dp"
-            android:layout_height="119dp"
+            android:layout_width="376dp"
+            android:layout_height="161dp"
             android:layout_marginBottom="76dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -68,6 +67,7 @@
                 android:id="@+id/TVNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -76,6 +76,7 @@
                 android:id="@+id/TVApellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="text"
                 android:textStyle="bold" />
@@ -84,6 +85,7 @@
                 android:id="@+id/TVTelefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -92,6 +94,7 @@
                 android:id="@+id/TVDireccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -100,6 +103,7 @@
                 android:id="@+id/TVCorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -108,8 +112,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="358dp"
-            android:layout_height="203dp"
+            android:layout_width="576dp"
+            android:layout_height="172dp"
             android:layout_marginBottom="60dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -119,10 +123,20 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
+                android:id="@+id/tTVCodigo"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif-monospace"
+                android:text="Codigo"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/TVSexoMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Sexo"
                 android:textSize="14sp"
@@ -133,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Nombre"
                 android:textStyle="bold" />
@@ -143,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="12dp"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Color"
                 android:textStyle="bold" />
@@ -152,6 +168,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Fecha Nacimiento"
                 android:textStyle="bold" />
@@ -161,6 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Detalle"
                 android:textStyle="bold" />
@@ -169,6 +187,7 @@
                 android:id="@+id/TVEstadoMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Estado"
                 android:textStyle="bold" />
@@ -177,6 +196,7 @@
                 android:id="@+id/TVERMascota"
                 android:layout_width="216dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="Raza y Especies"
                 android:textStyle="bold" />
@@ -208,10 +228,10 @@
             android:id="@+id/imageView10"
             android:layout_width="354dp"
             android:layout_height="327dp"
-            android:layout_marginBottom="904dp"
+            android:layout_marginBottom="992dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.368"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/file__1_" />
 

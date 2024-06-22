@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 public class DB extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "VETBD2024.db";
+    private static final String DATABASE_NAME = "VETBD2024FINAL11f2.db";
     private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
     private Context c;
@@ -32,16 +32,51 @@ public class DB extends SQLiteOpenHelper {
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT004', 'CAT', 'Persa');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT005', 'CAT', 'Bengala');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT006', 'CAT', 'Sphynx');");
-// Puedes seguir agregando más razas de gatos según sea necesario
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT007', 'CAT', 'Ragdoll');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT008', 'CAT', 'Maine Coon');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT009', 'CAT', 'Siberiano');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT010', 'CAT', 'Scottish Fold');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT011', 'CAT', 'Abisinio');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT012', 'CAT', 'Birmano');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT013', 'CAT', 'British Shorthair');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT014', 'CAT', 'Chartreux');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT015', 'CAT', 'Devon Rex');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT016', 'CAT', 'Exotic Shorthair');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT017', 'CAT', 'Himalayo');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT018', 'CAT', 'Ocicat');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT019', 'CAT', 'Oriental');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT020', 'CAT', 'Singapura');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('CAT021', 'CAT', 'Mestizo');");
+
             db.execSQL("INSERT INTO ESPECIE (SP_CODIGO, SP_DESCRIPCION) VALUES ('DOG', 'Perro');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG02', 'DOG', 'Bulldog');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG03', 'DOG', 'Labrador');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG04', 'DOG', 'Golden Retriever');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG05', 'DOG', 'Chihuahua');");
             db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG06', 'DOG', 'Husky Siberiano');");
-// Puedes seguir agregando más razas de perros según sea necesario
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG07', 'DOG', 'Dachshund');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG08', 'DOG', 'Poodle');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG09', 'DOG', 'Rottweiler');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG10', 'DOG', 'Shih Tzu');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG11', 'DOG', 'Border Collie');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG12', 'DOG', 'Beagle');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG13', 'DOG', 'Boxer');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG14', 'DOG', 'Cocker Spaniel');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG15', 'DOG', 'Mastín Napolitano');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG16', 'DOG', 'Pastor Alemán');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG17', 'DOG', 'Pug');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG18', 'DOG', 'Dálmata');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG19', 'DOG', 'Bulldog Francés');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG20', 'DOG', 'Akita Inu');");
+            db.execSQL("INSERT INTO RAZA (RZ_CODIGO, SP_CODIGO, RZ_DESCRIPCION) VALUES ('DOG21', 'DOG', 'Mestizo');");
 
 
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('VAC001', 'VACUNA CONTROL', 'Nobivac DP', 'Intervet');");
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('RAB001', 'VACUNA RABIA', 'Rabvac 3', 'Boehringer Ingelheim');");
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('DESP001', 'DESPARACITANTE', 'Drontal Plus', 'Bayer');");
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('DESP002', 'DESPARACITANTE', 'Frontline Plus', 'Merial');");
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('VAC002', 'VACUNA CONTROL', 'Vanguard Plus 5', 'Zoetis');");
+            db.execSQL("INSERT INTO VACUNA (VAC_CODIGO, VAC_TIPO, VAC_DESCRIPCION, VAC_FABRICANTE) VALUES ('RAB002', 'VACUNA RABIA', 'Defensor 3', 'Zoetis');");
         }
         catch (SQLException e)
         {

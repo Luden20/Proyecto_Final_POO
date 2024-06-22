@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ingreso_Mascota">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/fondoverde" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -13,9 +25,8 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="638dp"
-            android:layout_height="941dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="989dp"
+            android:layout_height="1155dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,8 +110,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="191dp"
-            android:layout_height="104dp"
+            android:layout_width="367dp"
+            android:layout_height="103dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -113,6 +124,7 @@
                 android:id="@+id/TVNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -121,6 +133,7 @@
                 android:id="@+id/TVApellido"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="text"
                 android:textStyle="bold" />
@@ -129,6 +142,7 @@
                 android:id="@+id/TVTelefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -137,6 +151,7 @@
                 android:id="@+id/TVDireccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -145,6 +160,7 @@
                 android:id="@+id/TVCorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="serif-monospace"
                 android:text="TextView"
                 android:textStyle="bold" />
@@ -153,12 +169,34 @@
 
         <TableLayout
             android:id="@+id/tableLayout"
-            android:layout_width="283dp"
-            android:layout_height="238dp"
+            android:layout_width="307dp"
+            android:layout_height="274dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SPRaza">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
+                    android:text="Codigo"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ETCodigo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="serif-monospace"
+                    android:inputType="text"
+                    android:textStyle="bold" />
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -291,21 +329,35 @@
             app:iconTintMode="multiply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.124"
+            app:layout_constraintHorizontal_bias="0.156"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            app:layout_constraintVertical_bias="0.259" />
+            app:layout_constraintVertical_bias="0.429" />
 
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="40dp"
             android:src="@drawable/_xjk"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.72"
+            app:layout_constraintHorizontal_bias="0.771"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar cliente"
+            app:layout_constraintBottom_toTopOf="@+id/SPFiltro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold" />/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
