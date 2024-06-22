@@ -15,6 +15,7 @@
             android:id="@+id/imageView8"
             android:layout_width="638dp"
             android:layout_height="941dp"
+            android:layout_marginStart="4dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -276,23 +277,34 @@
         </TableLayout>
 
         <Button
-            android:id="@+id/BTIngreso"
+            android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="#55a84e"
-            android:backgroundTint="#55a84e"
+            android:backgroundTint="#4CAF50"
             android:fontFamily="serif"
             android:onClick="Ingreso"
             android:text="Ingreso"
+            android:textColor="#0F1E20"
             android:textStyle="bold"
-            app:iconTint="#55A84E"
+            app:icon="@drawable/_2639710_sincronizaci_n_con_el__cono_de_la_nube_carga_de_datos_conexi_n_s_mbolo_de_sincronizaci_n_sobre_removebg_preview"
+            app:iconPadding="16dp"
+            app:iconTintMode="multiply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.124"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-            app:rippleColor="#55a84e" />
+            app:layout_constraintVertical_bias="0.259" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="100dp"
+            android:src="@drawable/_xjk"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.72"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

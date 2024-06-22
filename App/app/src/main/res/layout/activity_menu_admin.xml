@@ -50,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/BTVacuna"
-            app:layout_constraintVertical_bias="0.225" />
+            app:layout_constraintVertical_bias="0.09" />
 
         <TextView
             android:id="@+id/textView6"
@@ -107,14 +107,24 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="263dp"
-            android:layout_height="253dp"
+            android:layout_width="164dp"
+            android:layout_height="144dp"
             android:layout_marginTop="188dp"
             android:rotation="-32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/estetoscopiocambiadopngbuenoaaaaaaa" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="126dp"
+            android:layout_height="99dp"
+            android:layout_marginBottom="44dp"
+            android:src="@drawable/_6sy__2_"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BTVacunacion" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

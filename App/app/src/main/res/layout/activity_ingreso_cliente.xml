@@ -238,6 +238,7 @@
             android:textColor="#1B3A3E"
             android:textStyle="bold"
             app:icon="@drawable/_2639710_sincronizaci_n_con_el__cono_de_la_nube_carga_de_datos_conexi_n_s_mbolo_de_sincronizaci_n_sobre_removebg_preview"
+            app:iconTintMode="multiply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

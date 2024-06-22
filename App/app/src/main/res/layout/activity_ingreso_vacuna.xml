@@ -28,21 +28,25 @@
             android:fontFamily="serif"
             android:onClick="IngresarVacuna"
             android:text="Ingresar"
+            android:textColor="#162939"
             android:textStyle="bold"
+            app:icon="@drawable/_2639710_sincronizaci_n_con_el__cono_de_la_nube_carga_de_datos_conexi_n_s_mbolo_de_sincronizaci_n_sobre_removebg_preview"
+            app:iconTintMode="multiply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout3"
-            app:layout_constraintVertical_bias="0.207" />
+            app:layout_constraintVertical_bias="0.326" />
 
         <TableLayout
             android:id="@+id/tableLayout3"
             android:layout_width="300dp"
             android:layout_height="204dp"
-            android:layout_marginBottom="252dp"
+            android:layout_marginBottom="176dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.387"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent">
 
             <TableRow
@@ -141,7 +145,7 @@
             app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/vacuna" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
