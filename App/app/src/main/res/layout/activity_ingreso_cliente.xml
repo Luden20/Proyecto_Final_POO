@@ -23,194 +23,168 @@
         android:layout_height="wrap_content">
 
 
-
-        <TableLayout
+        <LinearLayout
             android:id="@+id/tableLayout2"
-            android:layout_width="318dp"
-            android:layout_height="357dp"
-            android:layout_marginTop="155dp"
+            android:layout_width="239dp"
+            android:layout_height="545dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/Ingreso"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TableRow
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Cedula"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDCedula">
 
                 <EditText
                     android:id="@+id/EDCedula"
-                    android:layout_width="268dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese su cedula"
                     android:inputType="number"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
-
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Nombre"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDNombre">
 
                 <EditText
                     android:id="@+id/EDNombre"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese Nombre"
                     android:inputType="text"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
 
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Apellido"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDApellido">
 
                 <EditText
                     android:id="@+id/EDApellido"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese apellido"
                     android:inputType="text"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
-
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Telefono"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDTelefono">
 
                 <EditText
                     android:id="@+id/EDTelefono"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese telefono"
                     android:inputType="phone"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
-
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Direccion"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDDireccion">
 
                 <EditText
                     android:id="@+id/EDDireccion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese direccion"
                     android:inputType="text"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
 
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Correo"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDCorreo">
 
                 <EditText
                     android:id="@+id/EDCorreo"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="serif-monospace"
+                    android:hint="Ingrese correo"
                     android:inputType="textEmailAddress"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
 
-            <TableRow
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:text="Password"
-                    android:textColor="@color/Negro"
-                    android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EDPassword">
 
                 <EditText
                     android:id="@+id/EDPassword"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Ingrese password"
                     android:inputType="text"
                     android:textColor="#404040"
                     android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </TableRow>
 
-        </TableLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView21"
@@ -223,13 +197,14 @@
             app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.137" />
 
         <Button
             android:id="@+id/Ingreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="156dp"
+            android:layout_marginBottom="96dp"
             android:backgroundTint="#55a84e"
             android:backgroundTintMode="add"
             android:fontFamily="serif"
@@ -250,10 +225,10 @@
             android:layout_height="158dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.004"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.919"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/gato_silueta" />
 
         <ImageView
@@ -265,7 +240,7 @@
             app:layout_constraintHorizontal_bias="0.942"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.916"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/perro_silueta_recortado" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

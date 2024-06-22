@@ -102,9 +102,21 @@ public class Vacunacion extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vacunas);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         TP_VACUNA.setAdapter(adapter);
+        SPCedulaBuscar.setSelection(0);
+        SPCedulaBuscarActionListener();
     }
 
     public void SPCedulaBuscarActionListener(View v)
+    {
+        SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
+        IDCliente=SPCedulaBuscar.getSelectedItem().toString();
+        SPMascota.setAdapter(db.getArrayAdapter("SELECT MSC_NOMBRE FROM MASCOTA M INNER JOIN CLIENTE C ON M.CLI_CEDULA_RUC=C.CLI_CEDULA_RUC WHERE M.CLI_CEDULA_RUC='"+IDCliente+"';",this));
+        TextView NOMBRE_CLI=findViewById(R.id.NOMBRE_CLI);
+        NOMBRE_CLI.setText(db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView APELLIDO_CLI=findViewById(R.id.APELLIDO_CLI);
+        APELLIDO_CLI.setText(db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+    }
+    public void SPCedulaBuscarActionListener()
     {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         IDCliente=SPCedulaBuscar.getSelectedItem().toString();

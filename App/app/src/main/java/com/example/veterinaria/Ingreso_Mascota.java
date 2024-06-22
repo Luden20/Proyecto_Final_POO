@@ -128,9 +128,26 @@ public class Ingreso_Mascota extends AppCompatActivity {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         Ingreso=EDBuscado.getText().toString();
         SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"%';",this));
+        SPCedulaBuscar.setSelection(0);
+        SPCedulaBuscarActionListener();
         Log.d("SQL","SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"'%;");
     }
     public void SPCedulaBuscarActionListener(View v)
+    {
+        SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
+        IDCliente=SPCedulaBuscar.getSelectedItem().toString();
+        TextView TVNombre=findViewById(R.id.TVNombre);
+        TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView TVApellido=findViewById(R.id.TVApellido);
+        TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView TVTelefono=findViewById(R.id.TVTelefono);
+        TVTelefono.setText("Telefono:"+db.get("SELECT CLI_TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView TVCorreo=findViewById(R.id.TVCorreo);
+        TVCorreo.setText("Correo:"+db.get("SELECT CLI_CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+        TextView TVDireccion=findViewById(R.id.TVDireccion);
+        TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
+    }
+    public void SPCedulaBuscarActionListener()
     {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         IDCliente=SPCedulaBuscar.getSelectedItem().toString();

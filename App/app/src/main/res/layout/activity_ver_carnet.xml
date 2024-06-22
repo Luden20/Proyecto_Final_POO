@@ -53,8 +53,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="376dp"
-            android:layout_height="161dp"
+            android:layout_width="478dp"
+            android:layout_height="142dp"
             android:layout_marginBottom="76dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -65,7 +65,7 @@
 
             <TextView
                 android:id="@+id/TVNombre"
-                android:layout_width="wrap_content"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
@@ -74,7 +74,7 @@
 
             <TextView
                 android:id="@+id/TVApellido"
-                android:layout_width="wrap_content"
+                android:layout_width="213dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
@@ -83,7 +83,7 @@
 
             <TextView
                 android:id="@+id/TVTelefono"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
@@ -92,7 +92,7 @@
 
             <TextView
                 android:id="@+id/TVDireccion"
-                android:layout_width="wrap_content"
+                android:layout_width="244dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
@@ -101,7 +101,7 @@
 
             <TextView
                 android:id="@+id/TVCorreo"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"

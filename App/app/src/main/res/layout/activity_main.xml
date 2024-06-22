@@ -39,49 +39,58 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
-                android:text="Bienvenido a Vet Toñito"
+                android:text="Bienvenido a la Clinica Veterinaria Los Chillos"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/User"
+                app:layout_constraintBottom_toTopOf="@+id/textInputUser"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
                 app:layout_constraintVertical_bias="0.516" />
 
-            <EditText
-                android:id="@+id/User"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="56dp"
-                android:ems="10"
-                android:fontFamily="serif-monospace"
-                android:inputType="number"
-                android:text=""
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/Password"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputUser"
+                android:layout_width="302dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView">
 
-            <EditText
-                android:id="@+id/Password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="72dp"
-                android:ems="10"
-                android:fontFamily="serif-monospace"
-                android:inputType="textPassword"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/button"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/User"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
+                    android:hint="Ingrese cédula"
+                    android:inputType="number"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputPassword"
+                android:layout_width="295dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputUser">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
+                    android:hint="Ingrese contraseña"
+                    android:inputType="textPassword"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="36dp"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="#55A84E"
                 android:fontFamily="serif-monospace"
                 android:onClick="Pasar"
@@ -89,8 +98,7 @@
                 android:textAlignment="textStart"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:icon="@android:drawable/ic_menu_set_as"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintTop_toBottomOf="@id/textInputPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -98,16 +106,15 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="#8ED589"
                 android:fontFamily="serif-monospace"
                 android:onClick="EntrarIngresoCliente"
                 android:text="No tengo cuenta"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.499"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <pl.droidsonroids.gif.GifImageView
