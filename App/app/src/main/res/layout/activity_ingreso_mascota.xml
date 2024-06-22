@@ -19,7 +19,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/fondoverde" />
 
         <EditText
@@ -29,14 +29,14 @@
             android:ems="10"
             android:fontFamily="serif-monospace"
             android:inputType="text"
-            android:text="Name"
+            android:text=""
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.637" />
+            app:layout_constraintVertical_bias="0.424" />
 
         <Spinner
             android:id="@+id/SPFiltro"
@@ -48,7 +48,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.618" />
+            app:layout_constraintVertical_bias="0.431" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -56,32 +56,34 @@
             android:layout_height="39dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.655"
+            app:layout_constraintVertical_bias="0.457"
             app:srcCompat="@drawable/lupa" />
 
         <Spinner
             android:id="@+id/SPRaza"
             android:layout_width="271dp"
             android:layout_height="53dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:background="@color/VerdeClaroMascota"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SPCedulaBuscar" />
+            app:layout_constraintTop_toBottomOf="@+id/SPEspecie" />
 
         <Spinner
             android:id="@+id/SPCedulaBuscar"
             android:layout_width="271dp"
             android:layout_height="52dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
             android:background="@color/VerdeClaroMascota"
             android:outlineAmbientShadowColor="#0000FF"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SPEspecie" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/SPEspecie"
@@ -104,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16">
+            app:layout_constraintVertical_bias="0.255">
 
             <TextView
                 android:id="@+id/TVNombre"
