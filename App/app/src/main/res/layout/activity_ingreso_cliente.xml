@@ -230,14 +230,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="156dp"
             android:backgroundTint="#55a84e"
+            android:backgroundTintMode="add"
             android:fontFamily="serif"
             android:onClick="Ingresar"
             android:rotationX="0"
             android:text="Ingreso"
+            android:textColor="#1B3A3E"
             android:textStyle="bold"
+            app:icon="@drawable/_2639710_sincronizaci_n_con_el__cono_de_la_nube_carga_de_datos_conexi_n_s_mbolo_de_sincronizaci_n_sobre_removebg_preview"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
