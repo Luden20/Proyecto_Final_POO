@@ -34,7 +34,7 @@ public class Ingreso_Mascota extends AppCompatActivity {
     private Spinner SPRaza;
     private Spinner SPFiltro;
     private Spinner SPCedulaBuscar;
-    public EditText EDBuscado;
+    private EditText EDBuscado;
     private DB db;
     private String IDEspecie;
     private String IDRaza;
