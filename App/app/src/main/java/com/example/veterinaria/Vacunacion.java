@@ -31,7 +31,7 @@ public class Vacunacion extends AppCompatActivity {
     private String IngresoVac;
     private String IDCliente;
     private String IDMascota;
-    public String IDCarnet;
+    private String IDCarnet;
     private String Cod_vacuna;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
