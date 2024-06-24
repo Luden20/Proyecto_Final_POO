@@ -47,7 +47,7 @@
             app:layout_constraintVertical_bias="0.409">
 
             <EditText
-                android:id="@+id/EDBuscador"
+                android:id="@+id/EDBuscado"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:ems="10"
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
-                android:text="TextView"
+                android:text="Nombre"
                 android:textStyle="bold" />
 
             <TextView
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
-                android:text="text"
+                android:text="Apellido"
                 android:textStyle="bold" />
 
             <TextView
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
-                android:text="TextView"
+                android:text="Telefono"
                 android:textStyle="bold" />
 
             <TextView
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
-                android:text="TextView"
+                android:text="Direccion"
                 android:textStyle="bold" />
 
             <TextView
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="serif-monospace"
-                android:text="TextView"
+                android:text="Correo"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -281,6 +281,9 @@
                     android:ems="10"
                     android:fontFamily="serif-monospace"
                     android:hint="Fecha"
+                    android:onClick="ObtenerFecha"
+                    android:focusable="false"
+                    android:clickable="true"
                     android:inputType="date"
                     android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>

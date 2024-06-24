@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vacunacion">
+    tools:context=".Vacunacion"
+    android:textColor="@color/Negro">
     <ImageView
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
@@ -78,6 +79,17 @@
                 android:textStyle="bold"
                 android:layout_gravity="center" />
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif-monospace"
+                android:text="Mascota"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <Spinner
                 android:id="@+id/SPMascota"
                 android:layout_width="212dp"
@@ -87,15 +99,15 @@
                 android:background="@color/VerdeClaroMascota" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/textView994"
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:fontFamily="serif-monospace"
-                android:text="Mascota"
+                android:text="Que desea aplicar?"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_gravity="center" />
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/TP_VACUNA"
@@ -122,11 +134,11 @@
                     android:id="@+id/TT_LOTE"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="serif-monospace"
                     android:hint="Lote"
                     android:inputType="text"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:fontFamily="serif-monospace" />
+                    android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -171,6 +183,9 @@
                 android:fontFamily="serif-monospace"
                 android:inputType="date"
                 android:hint="Fecha Revacunación"
+                android:focusable="false"
+                android:clickable="true"
+                android:onClick="ObtenerFecha"
                 android:textSize="16sp"
                 android:textStyle="bold" />
             </com.google.android.material.textfield.TextInputLayout>

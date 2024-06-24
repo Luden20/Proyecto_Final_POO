@@ -114,31 +114,26 @@ public class DB extends SQLiteOpenHelper {
     }
     public String[] getAllArray(String query) {
         Cursor cursor = generarCursor(query);
-        String[] aux = new String[cursor.getCount()];
-        int i = 0;
+        if(cursor!=null)
+        {
+            String[] aux = new String[cursor.getCount()];
+            int i = 0;
 
-        while (cursor.moveToNext()) {
-            String rowData = "";
-            for (int j = 0; j < cursor.getColumnCount(); j++) {
-                String value = cursor.getString(j);
-                rowData += "\n"+value;
+            while (cursor.moveToNext()) {
+                String rowData = "";
+                for (int j = 0; j < cursor.getColumnCount(); j++) {
+                    String value = cursor.getString(j);
+                    rowData += "\n"+value;
+                }
+                aux[i] = rowData;
+                i++;
             }
-            aux[i] = rowData;
-            i++;
+            cursor.close();
+            return aux;
         }
-        cursor.close();
-        return aux;
+        return new String[]{""};
     }
-    public String[] getAtributeArray(String query) {
-        Cursor cursor = generarCursor(query);
-        String[] aux = new String[ cursor.getColumnCount()];
 
-        for (int i = 0; i < cursor.getColumnCount(); i++) {
-            aux[i]=cursor.getColumnName(i);
-        }
-        cursor.close();
-        return aux;
-    }
     public ArrayAdapter<String> getAllArrayAdapter(String sql, Context context) {
         String[] opciones = getAllArray(sql);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, opciones);
@@ -152,12 +147,7 @@ public class DB extends SQLiteOpenHelper {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
     }
-    public ArrayAdapter<String> getAtributeArrayAdapter(String sql, Context context) {
-        String[] opciones = getAtributeArray(sql);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, opciones);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        return adapter;
-    }
+
     public String get(String sql)
     {
         try {

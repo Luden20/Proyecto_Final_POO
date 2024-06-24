@@ -1,21 +1,33 @@
 package com.example.veterinaria;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
 
 public class Ingreso_Mascota extends AppCompatActivity {
     private Spinner SPEspecie;
@@ -32,6 +44,7 @@ public class Ingreso_Mascota extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ingreso_mascota);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -46,7 +59,9 @@ public class Ingreso_Mascota extends AppCompatActivity {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         SPRaza = (Spinner)findViewById(R.id.SPRaza);
         SPFiltro=findViewById(R.id.SPFiltro);
-        EDBuscado=findViewById(R.id.EDBuscador);
+        EDBuscado=findViewById(R.id.EDBuscado);
+
+        EDBuscado.setText("");
         //Declaracion de listeners
         SPEspecie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -111,9 +126,19 @@ public class Ingreso_Mascota extends AppCompatActivity {
         //Instrucciones Iniciales
         SPEspecie.setAdapter(db.getArrayAdapter("SELECT SP_DESCRIPCION FROM ESPECIE;",this));
         SPRaza.setAdapter(db.getArrayAdapter("SELECT SP_DESCRIPCION FROM ESPECIE;",this));
-        SPFiltro.setAdapter(db.getAtributeArrayAdapter("SELECT * FROM CLIENTE;",this));
-        SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE;",this));
+        //SPFiltro.setAdapter(db.getAtributeArrayAdapter("SELECT * FROM CLIENTE;",this));
+        List<String> vacunas = Arrays.asList("Cedula_ruc","Nombre","Apellido","Telefono","Correo","Direccion");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vacunas);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SPFiltro.setAdapter(adapter);
+
         Ingreso=EDBuscado.getText().toString();
+
+        SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE;",this));
+
+        SPCedulaBuscar.setSelection(0);
+
+
     }
     public void SPEspecieActionListener(View view)
     {
@@ -124,30 +149,15 @@ public class Ingreso_Mascota extends AppCompatActivity {
     }
     public void EDBuscadoAfterTextChanged(CharSequence s)
     {
-        EDBuscado=findViewById(R.id.EDBuscador);
+        EDBuscado=findViewById(R.id.EDBuscado);
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         Ingreso=EDBuscado.getText().toString();
-        SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"%';",this));
-        SPCedulaBuscar.setSelection(0);
-        SPCedulaBuscarActionListener();
-        Log.d("SQL","SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"'%;");
+            SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"%';",this));
+            SPCedulaBuscar.setSelection(0);
+            Log.d("SQL","SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '%"+Ingreso+"'%;");
+
     }
     public void SPCedulaBuscarActionListener(View v)
-    {
-        SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
-        IDCliente=SPCedulaBuscar.getSelectedItem().toString();
-        TextView TVNombre=findViewById(R.id.TVNombre);
-        TVNombre.setText("Nombre:"+db.get("SELECT CLI_NOMBRE FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
-        TextView TVApellido=findViewById(R.id.TVApellido);
-        TVApellido.setText("Apellido:"+db.get("SELECT CLI_APELLIDO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
-        TextView TVTelefono=findViewById(R.id.TVTelefono);
-        TVTelefono.setText("Telefono:"+db.get("SELECT CLI_TELEFONO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
-        TextView TVCorreo=findViewById(R.id.TVCorreo);
-        TVCorreo.setText("Correo:"+db.get("SELECT CLI_CORREO FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
-        TextView TVDireccion=findViewById(R.id.TVDireccion);
-        TVDireccion.setText("Direcion:"+db.get("SELECT CLI_DIRECCION FROM CLIENTE WHERE CLI_CEDULA_RUC='"+IDCliente+"';"));
-    }
-    public void SPCedulaBuscarActionListener()
     {
         SPCedulaBuscar=findViewById(R.id.SPCedulaBuscar);
         IDCliente=SPCedulaBuscar.getSelectedItem().toString();
@@ -165,7 +175,8 @@ public class Ingreso_Mascota extends AppCompatActivity {
     public void SPFiltroActionListener(View view)
     {
         SPFiltro=findViewById(R.id.SPFiltro);
-        Atributo=SPFiltro.getSelectedItem().toString();
+        Atributo="CLI_"+SPFiltro.getSelectedItem().toString();
+        Atributo=Atributo.toUpperCase();
         SPCedulaBuscar.setAdapter(db.getArrayAdapter("SELECT CLI_CEDULA_RUC FROM CLIENTE WHERE "+Atributo+" LIKE '"+Ingreso+"';",this));
     }
     public void SPRazaActionListener(View view)
@@ -192,5 +203,21 @@ public class Ingreso_Mascota extends AppCompatActivity {
         String IDMacota=ETCodigo.getText().toString();
         db.Instruccion("INSERT INTO MASCOTA VALUES ('"+IDMacota+"', '"+IDCliente+"', '"+IDRaza+"', '"+Nombre+"', '"+Sexo+"', '"+Color+"', '"+Fecha+"', '"+Datos+"', 'Activa');","Ingreso Correcto","Error:Codigo ya ingresado");
         db.Instruccion("INSERT INTO CARNET VALUES('"+IDMacota+"','"+IDMacota+"')");
+    }
+    public void ObtenerFecha(View v)
+    {
+        final Calendar calendar = Calendar.getInstance();
+        int anio = calendar.get(Calendar.YEAR);
+        int mes = calendar.get(Calendar.MONTH);
+        int dia = calendar.get(Calendar.DAY_OF_MONTH);
+        EditText ETFecha=findViewById(R.id.ETFecha);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, year1, monthOfYear, dayOfMonth) -> {
+                    String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1;
+                    ETFecha.setText(selectedDate);
+                },
+                anio, mes, dia);
+        datePickerDialog.show();
     }
 }

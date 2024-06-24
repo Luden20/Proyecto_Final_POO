@@ -1,5 +1,6 @@
 package com.example.veterinaria;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 import android.widget.ArrayAdapter;
 import java.util.Arrays;
 import java.util.List;
+import androidx.appcompat.app.AppCompatDelegate;
+
 
 
 public class Vacunacion extends AppCompatActivity {
@@ -33,6 +36,8 @@ public class Vacunacion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_vacunacion);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -154,12 +159,29 @@ public class Vacunacion extends AppCompatActivity {
     public void INGRESO(View v)
     {
         Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        String currentDate = day + "/" + (month + 1) + "/" + year;
+        int anio = calendar.get(Calendar.YEAR);
+        int mes = calendar.get(Calendar.MONTH);
+        int dia = calendar.get(Calendar.DAY_OF_MONTH);
+        String currentDate = dia + "/" + (mes + 1) + "/" + anio;
         EditText TT_FECHA_REN=findViewById(R.id.TT_FECHA_REVACUNACION);
         String TT_FECHA_RE=TT_FECHA_REN.getText().toString();
         db.Instruccion("INSERT INTO DETALLE_VAC VALUES('"+IDCarnet+"','"+Cod_vacuna+"','"+currentDate+"','1','"+TT_FECHA_RE+"','Administrada')","Vacuna aplicada","Error al aplicar vacuna");
+    }
+    public void ObtenerFecha(View v)
+    {
+        final Calendar calendar = Calendar.getInstance();
+        int anio = calendar.get(Calendar.YEAR);
+        int mes = calendar.get(Calendar.MONTH);
+        int dia = calendar.get(Calendar.DAY_OF_MONTH);
+        EditText TT_FECHA_REVACUNACION=findViewById(R.id.TT_FECHA_REVACUNACION);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, year1, monthOfYear, dayOfMonth) ->
+                {
+                    String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1;
+                    TT_FECHA_REVACUNACION.setText(selectedDate);
+                },
+                anio, mes, dia);
+        datePickerDialog.show();
     }
 }
