@@ -28,7 +28,7 @@ public class Vacunacion extends AppCompatActivity {
     private Spinner SPVacuna;
     private Spinner TP_VACUNA;
     private DB db;
-    public String IngresoVac;
+    private String IngresoVac;
     private String IDCliente;
     private String IDMascota;
     public String IDCarnet;
