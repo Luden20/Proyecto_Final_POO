@@ -143,7 +143,6 @@ public class Vacunacion extends AppCompatActivity {
         TP_VACUNA=findViewById(R.id.TP_VACUNA);
         IngresoVac=TP_VACUNA.getSelectedItem().toString();
         SPVacuna.setAdapter(db.getArrayAdapter("SELECT VAC_CODIGO FROM  VACUNA WHERE VAC_TIPO='"+IngresoVac+"'", this));
-
     }
     public void SPVacunaActionListener(View v)
     {

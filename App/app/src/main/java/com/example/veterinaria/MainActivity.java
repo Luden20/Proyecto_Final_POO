@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Pasar(View v)
     {
-
         EditText ETPassword = findViewById(R.id.Password);
         String pass = ETPassword.getText().toString();
 
